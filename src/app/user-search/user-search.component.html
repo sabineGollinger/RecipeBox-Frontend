@@ -1,0 +1,58 @@
+<div class="card">
+  <div class="header">
+    <h2 class="title">User Search</h2>
+  </div>
+
+  <div class="content">
+    <form>
+      <div class="form-group">
+        <label>Vorname: </label>
+        <input [(ngModel)] = 'firstname' name ='firstname' class='form-control'>
+      </div>
+      <div class="form-group">
+        <label>Nachname: </label>
+        <input [(ngModel)]="lastname" name="lastname" class='form-control'>
+      </div>
+
+      <div class="form-group">
+        <button
+          [disabled]="!firstname || !lastname"
+          (click)="search()"
+          class="btn btn-default">Search</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="card">
+  <table class="table table-contensed" *ngIf="users.length > 0">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>E-Mail</th>
+      <th>Benutzername</th>
+      <th>Vorname</th>
+      <th>Nachname</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tr *ngFor="let u of users.users"
+        [class.active]="u === selectedUser">
+      <td>{{u.id}}</td>
+      <td>{{u.email }}</td>
+      <td>{{u.username }}</td>
+      <td>{{u.firstname }}</td>
+      <td>{{u.lastname }}</td>
+      <td>
+        <a
+          (click)="select(f)">Select</a>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div class="card">
+  <div class="content">
+    <pre>{{selectedUser | json }}</pre>
+  </div>
+</div>

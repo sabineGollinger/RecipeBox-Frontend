@@ -8,6 +8,8 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
+import {UserSearchComponent} from "./user-search/user-search.component";
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -17,7 +19,8 @@ import { AppComponent } from './app.component';
   declarations: [
     AppComponent,
     SidebarComponent,
-    NavbarComponent
+    NavbarComponent,
+    UserSearchComponent
   ],
   providers: [
   ],
