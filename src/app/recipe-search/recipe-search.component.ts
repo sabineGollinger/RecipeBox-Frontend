@@ -1,4 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {User} from "../entities/user";
+import {RecipeService} from "./recipe.service";
+import {Recipe} from "../entities/recipe";
+
+
 
 @Component({
   selector: 'recipe-search',
@@ -6,9 +11,34 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./recipe-search.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class RecipeSearchComponent implements OnInit {
+export class RecipeSearchComponent { //implements OnInit {
 
-  constructor() { }
+  name: string;
+  category: string;
+  ingredient: string;
+  preparation: string;
+  hint: string;
+  user: string;
+
+
+  constructor(private recipeService: RecipeService) { }
+
+  search(): void {
+    this.recipeService
+      .find(this.name, this.category)
+      .subscribe(
+        (recipes) => {
+          this.recipes = recipes
+        },
+        (errResp) => {
+          console.error('Error loading recipes', errResp);
+        }
+      )
+  }
+
+  select(r: Recipe):void {
+    this.selectedRecipe = r;
+  }
 
   ngOnInit() {
   }

@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 
 import {UserSearchComponent} from "./user-search/user-search.component";
+import {RecipeSearchComponent} from "./recipe-search/recipe-search.component";
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import {UserSearchComponent} from "./user-search/user-search.component";
     AppComponent,
     SidebarComponent,
     NavbarComponent,
-    UserSearchComponent
+    UserSearchComponent,
+    RecipeSearchComponent
   ],
   providers: [
   ],
