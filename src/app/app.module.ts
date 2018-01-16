@@ -8,14 +8,16 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
-import {RecipeSearchComponent} from './recipe-search/recipe-search.component';
-import {UserService} from "./service/user.service";
-import {RolePipe} from "./shared/pipes/role.pipe";
-import {UserModule} from "./user/user.module";
-import {SharedModule} from "./shared/shared.module";
-import {HomeComponent} from "./home/home.component";
-import {APP_ROUTES} from "./app.routes";
-import {RouterModule} from "@angular/router";
+import {RecipeSearchComponent} from './recipe/recipe-search/recipe-search.component';
+import {UserService} from './service/user.service';
+import {RolePipe} from './shared/pipes/role.pipe';
+import {UserModule} from './user/user.module';
+import {SharedModule} from './shared/shared.module';
+import {HomeComponent} from './home/home.component';
+import {APP_ROUTES} from './app.routes';
+import {RouterModule} from '@angular/router';
+import {RecipeModule} from './recipe/recipe.module';
+
 
 @NgModule({
   imports: [
@@ -24,13 +26,13 @@ import {RouterModule} from "@angular/router";
     HttpClientModule,
     SharedModule,
     UserModule,
+    RecipeModule,
     RouterModule.forRoot(APP_ROUTES)
   ],
   declarations: [
     AppComponent,
     SidebarComponent,
     NavbarComponent,
-    RecipeSearchComponent,
     HomeComponent
   ],
   providers: [
@@ -38,4 +40,5 @@ import {RouterModule} from "@angular/router";
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
