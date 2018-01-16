@@ -1,4 +1,4 @@
-<!--
+
 <div class="card">
   <div class="header">
     <h2 class="title">Recipe Search</h2>
@@ -39,16 +39,16 @@
     </tr>
     </thead>
     <tr *ngFor="let r of recipes.recipes"
-        [class.active]="u === selectedRecipe">
-      <td>{{u.id}}</td>
-      <td>{{u.name }}</td>
-      <td>{{u.cateogry }}</td>
-      <td>{{u.ingredient }}</td>
-      <td>{{u.preparation }}</td>
-      <td>{{u.user }}</td>
+        [class.active]="r === selectedRecipe">
+      <td>{{r.id}}</td>
+      <td>{{r.name }}</td>
+      <td>{{r.cateogry | category:'category' }}</td>
+      <td>{{r.ingredient }}</td>
+      <td>{{r.preparation }}</td>
+      <td>{{r.user }}</td>
       <td>
         <a
-          (click)="select(f)">Select</a>
+          (click)="select(r)">Select</a>
       </td>
     </tr>
   </table>
@@ -59,7 +59,29 @@
     <pre>{{selectedRecipe | json }}</pre>
   </div>
 </div>
--->
+
+<div *ngIf="selectedRecipe">
+  <div>
+    {{ message }}
+  </div>
+  <div class="form-group">
+    <label>Id</label> <input [(ngModel)]="selectedRecipe.id" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Name</label> <input [(ngModel)]="selectedRecipe.name" class="form-control">
+  </div>
+</div>
+
+
+<div class="row">
+  <div *ngFor="let r of recipes" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+    <recipe-card
+      [item]="r"
+      [(selected)]="basket[r.id]">
+    </recipe-card>
+  </div>
+</div>
+
 
 <div class="card">
   <div class="content">
@@ -70,3 +92,8 @@
 
 <router-outlet></router-outlet>
 
+<div class="card">
+  <div class="content">
+    <pre>{{ basket | json }}</pre>
+  </div>
+</div>
