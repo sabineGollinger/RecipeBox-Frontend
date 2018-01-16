@@ -18,7 +18,6 @@ import {APP_ROUTES} from './app.routes';
 import {RouterModule} from '@angular/router';
 import {RecipeModule} from './recipe/recipe.module';
 
-
 @NgModule({
   imports: [
     BrowserModule,
@@ -40,5 +39,4 @@ import {RecipeModule} from './recipe/recipe.module';
   ],
   bootstrap: [AppComponent]
 })
-
 export class AppModule { }

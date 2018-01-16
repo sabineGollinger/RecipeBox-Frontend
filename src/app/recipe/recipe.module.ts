@@ -5,6 +5,9 @@ import {SharedModule} from '../shared/shared.module';
 import {RouterModule} from '@angular/router';
 import {RecipeSearchComponent} from './recipe-search/recipe-search.component';
 import {RECIPE_ROUTES} from './recipe.routes';
+import {RecipeCardComponent} from "./recipe-card/recipe-card.component";
+import {RecipeService} from "./recipe-search/recipe.service";
+import {RecipeEditComponent} from "./recipe-edit/recipe-edit.component";
 
 
 @NgModule({
@@ -17,9 +20,12 @@ import {RECIPE_ROUTES} from './recipe.routes';
 
   ],
   declarations: [
-    RecipeSearchComponent
+    RecipeSearchComponent,
+    RecipeCardComponent,
+    RecipeEditComponent
   ],
   providers: [
+    RecipeService
   ],
   exports: [
     RecipeSearchComponent

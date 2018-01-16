@@ -23,6 +23,8 @@ export class RecipeSearchComponent { // implements OnInit {
   recipes: Array<Recipe> = [];
   selectedRecipe: Recipe;
 
+  basket: object = {  };
+
 
   constructor(private recipeService: RecipeService) { }
 

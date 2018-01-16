@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="header">
+    <h1 class="title">Recipe Edit</h1>
+  </div>
+  <div class="content">
+    <p>Id: {{id}}</p>
+    <p>ShowDetails: {{showDetails}}</p>
+  </div>
+</div>
+
+<form *ngIf="recipe">
+
+  <div class="form-group">
+    <label>Id:</label>
+    <input [(ngModel)]="recipe.id" name="id" class="form-control">
+  </div>
+
+  <div class="form-group">
+  <label>Name:</label>
+  <input [(ngModel)]="recipe.name" name="name"
+         class="form-control">
+</div>
+
+  <div class="form-group">
+    <label>Category:</label>
+    <input [(ngModel)]="recipe.category" name="category"
+           class="form-control">
+  </div>
+
+  <!-- Fügen Sie hier Felder für die weiteren Eigenschaften -->
+  <!-- des Fluges hinzu -->
+
+  <button class="btn btn-default" (click)="save()">Speichern</button>
+
+</form>

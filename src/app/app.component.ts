@@ -6,5 +6,5 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent  {
-  title = 'Willkommen auf unserer RecipeBox';
+  title = 'Willkommen in der RecipeBox';
 }
