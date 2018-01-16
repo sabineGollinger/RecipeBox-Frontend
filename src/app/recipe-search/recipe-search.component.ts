@@ -20,6 +20,9 @@ export class RecipeSearchComponent { //implements OnInit {
   hint: string;
   user: string;
 
+  recipes: Array<Recipe> = [];
+  selectedRecipe : Recipe;
+
 
   constructor(private recipeService: RecipeService) { }
 

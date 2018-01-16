@@ -18,7 +18,11 @@
         <button
           [disabled]="!firstname || !lastname"
           (click)="search()"
-          class="btn btn-default">Search</button>
+          class="btn btn-default">Suche</button>
+
+        <button
+          (click)="showAll()"
+          class="btn btn-default">Alle User anzeigen</button>
       </div>
     </form>
   </div>
@@ -33,26 +37,30 @@
       <th>Benutzername</th>
       <th>Vorname</th>
       <th>Nachname</th>
-      <th></th>
+      <th>Rolle</th>
     </tr>
     </thead>
-    <tr *ngFor="let u of users.users"
+    <tr *ngFor="let u of users"
         [class.active]="u === selectedUser">
       <td>{{u.id}}</td>
       <td>{{u.email }}</td>
       <td>{{u.username }}</td>
       <td>{{u.firstname }}</td>
       <td>{{u.lastname }}</td>
-      <td>
-        <a
-          (click)="select(f)">Select</a>
-      </td>
+      <td>{{u.email | role}}</td>
     </tr>
   </table>
 </div>
 
-<div class="card">
-  <div class="content">
-    <pre>{{selectedUser | json }}</pre>
-  </div>
+<div class="card" *ngIf="users.length > 0">
+  <table class="table table-contensed">
+    <tr>
+      <td>A</td>
+      <td>Admin</td>
+    </tr>
+    <tr>
+      <td>U</td>
+      <td>User</td>
+    </tr>
+  </table>
 </div>

@@ -6,33 +6,30 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var http_1 = require("@angular/common/http");
-var http_2 = require("@angular/common/http");
 var UserSearchComponent = (function () {
-    function UserSearchComponent(http) {
-        this.http = http;
+    function UserSearchComponent(userService) {
+        this.userService = userService;
         this.users = [];
     }
     UserSearchComponent.prototype.ngOnInit = function () { };
     UserSearchComponent.prototype.search = function () {
         var _this = this;
-        //Suchefunktion
-        var url = 'http://localhost:8080/users/search/findByFirstnameAndLastname/';
-        var headers = new http_1.HttpHeaders()
-            .set('Accept', 'application/json');
-        var params = new http_2.HttpParams()
-            .set('firstname', this.firstname)
-            .set('lastname', this.lastname);
-        this.http
-            .get(url, { headers: headers, params: params })
-            .subscribe(function (users) {
-            _this.users = users;
-        }, function (errResp) {
-            console.error('error loading users', errResp);
+        this.userService
+            .findByFirstnameAndLastname(this.firstname, this.lastname).subscribe(function (users) {
+            _this.users = users['_embedded']['users'];
+        }, function (err) {
+            console.error('Fehler beim Laden', err);
         });
     };
-    UserSearchComponent.prototype.select = function (u) {
-        this.selectedUser = u;
+    UserSearchComponent.prototype.showAll = function () {
+        var _this = this;
+        this.userService
+            .findAllUsers()
+            .subscribe(function (users) {
+            _this.users = users['_embedded']['users'];
+        }, function (err) {
+            console.error('Fehler beim Laden', err);
+        });
     };
     UserSearchComponent = __decorate([
         core_1.Component({
