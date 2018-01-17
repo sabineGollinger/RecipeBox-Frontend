@@ -1,6 +1,6 @@
 <div class="card">
   <div class="header">
-    <h1 class="title">Recipe Edit</h1>
+    <h1 class="title">Edit Recipe</h1>
   </div>
   <div class="content">
     <p>Id: {{id}}</p>
@@ -8,7 +8,11 @@
   </div>
 </div>
 
+hello
+
 <form *ngIf="recipe">
+
+  is it me youre looking for
 
   <div class="form-group">
     <label>Id:</label>
@@ -17,14 +21,27 @@
 
   <div class="form-group">
   <label>Name:</label>
-  <input [(ngModel)]="recipe.name" name="name"
-         class="form-control">
+  <input [(ngModel)]="recipe.name" name="name" class="form-control">
 </div>
 
   <div class="form-group">
     <label>Category:</label>
-    <input [(ngModel)]="recipe.category" name="category"
-           class="form-control">
+    <input [(ngModel)]="recipe.category" name="category" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label>Ingredients:</label>
+    <input [(ngModel)]="recipe.ingredient" name="ingredient" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label>Preparation:</label>
+    <input [(ngModel)]="recipe.preparation" name="preparation" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label>Hints:</label>
+    <input [(ngModel)]="recipe.hint" name="hint" class="form-control">
   </div>
 
   <!-- Fügen Sie hier Felder für die weiteren Eigenschaften -->
@@ -32,4 +49,9 @@
 
   <button class="btn btn-default" (click)="save()">Speichern</button>
 
+
+
+
 </form>
+
+

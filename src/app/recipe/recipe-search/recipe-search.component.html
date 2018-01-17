@@ -32,6 +32,7 @@
   </div>
 </div>
 
+<!--
 <div class="card">
   <table class="table table-contensed" *ngIf="recipes.length > 0">
     <thead>
@@ -39,9 +40,9 @@
       <th>Id</th>
       <th>Name</th>
       <th>Category</th>
-      <!--<th>Ingredients</th>
+      <th>Ingredients</th>
       <th>Preparation</th>
-      <th>added on</th>-->
+      <th>added on</th>
       <th>added by</th>
       <th>Action</th>
     </tr>
@@ -50,26 +51,30 @@
         [class.active]="r === selectedRecipe">
       <td>{{r.id}}</td>
       <td>{{r.name }}</td>
-      <td>{{r.category | category:'category'}}</td>
-      <!--<td>{{r.ingredient }}</td>
+      <td>{{r.category}}</td>
+      <td>{{r.ingredient }}</td>
       <td>{{r.preparation }}</td>
-      <td>{{r.addedDate | date:'dd.MM.yyyy'}}</td>-->
-      <td>{{r.users }}</td>
+      <td>{{r.addedDate | date:'dd.MM.yyyy'}}</td>
+      <td>{{r.username }}</td>
 
-      <!--<td>
+      <td>
         <a
           (click)="select(r)">Select</a>
-      </td>-->
+      </td>
     </tr>
   </table>
 </div>
+-->
 
+<!--
 <div class="card">
   <div class="content">
     <pre>{{selectedRecipe | json }}</pre>
   </div>
 </div>
+-->
 
+<!--
 <div *ngIf="selectedRecipe">
   <div>
     {{ message }}
@@ -81,6 +86,7 @@
     <label>Name</label> <input [(ngModel)]="selectedRecipe.name" class="form-control">
   </div>
 </div>
+-->
 
 
 <div class="row">
@@ -92,18 +98,21 @@
   </div>
 </div>
 
-
+<!--
 <div class="card">
   <div class="content">
-    <a routerLink="./recipe-search">Recipe Search</a> |
-    <a routerLink="./user-search">User Search</a>
+    <a routerLink="../recipe-search">Recipe Search</a> |
+    <a routerLink="../user-search">User Search</a>
   </div>
 </div>
+
 
 <router-outlet></router-outlet>
+-->
 
 <div class="card">
   <div class="content">
-    <pre>{{  json }}</pre>
+    <pre>{{ statusBasket | json }}</pre>
   </div>
 </div>
+

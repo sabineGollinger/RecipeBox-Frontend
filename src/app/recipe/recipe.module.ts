@@ -8,6 +8,7 @@ import {RECIPE_ROUTES} from './recipe.routes';
 import {RecipeCardComponent} from "./recipe-card/recipe-card.component";
 import {RecipeService} from "./recipe-search/recipe.service";
 import {RecipeEditComponent} from "./recipe-edit/recipe-edit.component";
+import {RecipeComponent} from "./recipe.component";
 
 
 @NgModule({
@@ -17,12 +18,12 @@ import {RecipeEditComponent} from "./recipe-edit/recipe-edit.component";
     SharedModule,
 
     RouterModule.forChild(RECIPE_ROUTES)
-
   ],
   declarations: [
     RecipeSearchComponent,
     RecipeCardComponent,
-    RecipeEditComponent
+    RecipeEditComponent,
+    RecipeComponent
   ],
   providers: [
     RecipeService

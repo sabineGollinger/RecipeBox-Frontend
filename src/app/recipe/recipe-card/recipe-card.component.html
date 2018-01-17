@@ -6,7 +6,8 @@
     <h4>{{item.category}}</h4>
   </div>
   <div class="content">
-    <p>added by {{item.user}}</p>
+    <p>added by a cute user</p>
+    <!--<p>added by {{item.user}}</p>
     <!--<p>added on {{item.addedDate | date:'dd.MM.yyyy'}}</p>-->
     <p>
       <button
@@ -19,7 +20,7 @@
         (click)="deselect()">Remove</button>
 
       <a class="btn btn-default"
-         [routerLink]="['/recipe-edit', item.id, { showDetails: true }]">
+         [routerLink]="['../recipe-edit', item.id, { showDetails: true }]">
         Edit
       </a>
 
@@ -27,3 +28,4 @@
     </p>
   </div>
 </div>
+

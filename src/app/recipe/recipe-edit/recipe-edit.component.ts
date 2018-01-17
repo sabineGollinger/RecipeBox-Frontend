@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Recipe} from '../../entities/recipe';
 import {RecipeService} from '../recipe-search/recipe.service';
@@ -6,7 +6,8 @@ import {RecipeService} from '../recipe-search/recipe.service';
 @Component({
   selector: 'recipe-edit',
   templateUrl: './recipe-edit.component.html',
-  styleUrls: ['./recipe-edit.component.css']
+  styleUrls: ['./recipe-edit.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 
 export class RecipeEditComponent implements OnInit {
@@ -26,7 +27,7 @@ export class RecipeEditComponent implements OnInit {
 
         this.recipeService.findById(this.id).subscribe(
           recipe => {this.recipe = recipe; this.errors = ''; },
-          err => {this.errors = 'Fehler beim Laden - aus der Crème brûlée wird leider nix'; }
+          err => {this.errors = 'Fehler beim Laden - aus dieser Crème brûlée wird leider nix'; }
         );
       }
     );

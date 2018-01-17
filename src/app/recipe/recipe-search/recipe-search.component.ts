@@ -18,13 +18,13 @@ export class RecipeSearchComponent { // implements OnInit {
   ingredient: string;
   preparation: string;
   hint: string;
-  user: string;
+  user: User;
   // addedDate: Date;
 
   recipes: Array<Recipe> = [];
   selectedRecipe: Recipe;
 
-  basket: object = { "1": false, "3": false };
+  basket: object = { };
 
 
   constructor(private recipeService: RecipeService) { }

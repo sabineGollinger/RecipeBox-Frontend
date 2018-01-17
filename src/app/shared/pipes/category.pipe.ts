@@ -10,8 +10,8 @@ export class CategoryPipe implements PipeTransform {
       case 'Cake':
         category = 'Cakes';
         break;
-      case 'Appetizer':
-        category = 'Appetizers';
+      case 'Main':
+        category = 'Mains';
         break;
       case 'Drink':
         category = 'Drinks';

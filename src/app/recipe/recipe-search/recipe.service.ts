@@ -44,6 +44,17 @@ export class RecipeService {
     // const url = '!!!! --- TO BE IMPLEMENTED --- !!!!';                            // IMPLEMENTIERUNG!!!!
     const headers = new HttpHeaders()
       .set('Accept', 'application/json');
+    this.http
+      .post<Recipe>(url, this.selectedRecipe, {headers})
+      .subscribe(
+        recipe => {
+          this.selectedRecipe = recipe;
+          this.message = 'Rezept erfolgreich gespeichert!';
+        },
+        errResponse => {
+          console.error('Fehler beim Speichern, errResponse');
+          this.message = 'Fehler beim Speichern! Da hat wohl jemand den Kochlöffel fallen gelassen!';
+        });
     return this.http.post<Recipe>(url, r, { headers});
   }
 
