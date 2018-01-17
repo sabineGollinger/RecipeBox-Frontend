@@ -19,18 +19,19 @@ export class RecipeSearchComponent { // implements OnInit {
   preparation: string;
   hint: string;
   user: string;
+  // addedDate: Date;
 
   recipes: Array<Recipe> = [];
   selectedRecipe: Recipe;
 
-  basket: object = {  };
+  basket: object = { "1": false, "3": false };
 
 
   constructor(private recipeService: RecipeService) { }
 
   search(): void {
     this.recipeService
-      .find(this.name, this.category)
+      .findByName(this.name)
       .subscribe(
         (recipes) => {
           this.recipes = recipes;
@@ -45,6 +46,18 @@ export class RecipeSearchComponent { // implements OnInit {
     this.selectedRecipe = r;
   }
 
+  showAll(): void {
+    this.recipeService
+      .findAllRecipes()
+      .subscribe(
+        (recipes) => {
+          this.recipes = recipes['_embedded']['recipes'];
+        },
+        (err) => {
+          console.error('Fehler beim Laden - Rezeptbuch nicht gefunden', err);
+        }
+      );
+  }
   /*
   ngOnInit() {
   }

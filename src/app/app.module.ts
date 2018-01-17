@@ -39,4 +39,5 @@ import {RecipeModule} from './recipe/recipe.module';
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
