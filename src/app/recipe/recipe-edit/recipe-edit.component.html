@@ -31,17 +31,19 @@ hello
 
   <div class="form-group">
     <label>Ingredients:</label>
-    <input [(ngModel)]="recipe.ingredient" name="ingredient" class="form-control">
+    <textarea id="edit" [(ngModel)]="recipe.ingredient" name="ingredient" class="form-control">
+    </textarea>
   </div>
 
   <div class="form-group">
     <label>Preparation:</label>
-    <input [(ngModel)]="recipe.preparation" name="preparation" class="form-control">
+    <textarea id="edit" [(ngModel)]="recipe.preparation" name="preparation" class="form-control">
+    </textarea>
   </div>
 
   <div class="form-group">
     <label>Hints:</label>
-    <input [(ngModel)]="recipe.hint" name="hint" class="form-control">
+    <input id="edit" [(ngModel)]="recipe.hint" name="hint" class="form-control">
   </div>
 
   <!-- Fügen Sie hier Felder für die weiteren Eigenschaften -->

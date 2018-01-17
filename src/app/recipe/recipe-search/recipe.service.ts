@@ -14,7 +14,7 @@ export class RecipeService {
   }
   findByName(name: string): Observable<Recipe[]> {
     // let url = 'http://www.angular.at/api/flight';
-    let url = 'http://localhost:8080/recipes/search/findByName/';                               // IMPLEMENTIERUNG!!!!
+    let url = 'http://localhost:8080/recipes/search/findByName/';
     let headers = new HttpHeaders() .set('Accept', 'application/json');
     let params = new HttpParams() .set('name', name);
     return this.http.get<Recipe[]>(url, {headers, params});
@@ -22,7 +22,7 @@ export class RecipeService {
 
   findById(id: string): Observable<Recipe> {
     // const url = 'http://www.angular.at/api/flight';
-    const url = 'http://localhost:8080/recipes/search/findById/';                            // IMPLEMENTIERUNG!!!!
+    const url = 'http://localhost:8080/recipes/search/findById/';
     const params = new HttpParams()
       .set('id', id);
     const headers = new HttpHeaders()
@@ -32,7 +32,7 @@ export class RecipeService {
 
   findByCategory(category: string): Observable<Recipe> {
     // const url = 'http://www.angular.at/api/flight';
-    const url = 'http://localhost:8080/recipes/search/findByCategory/';                            // IMPLEMENTIERUNG!!!!
+    const url = 'http://localhost:8080/recipes/search/findByCategory/';
     const params = new HttpParams()
       .set('category', category);
     const headers = new HttpHeaders()
@@ -40,8 +40,8 @@ export class RecipeService {
     return this.http.get<Recipe>(url, { params, headers});
   }
   save(r: Recipe): Observable<Recipe> {
-    const url = 'http://www.angular.at/api/flight';
-    // const url = '!!!! --- TO BE IMPLEMENTED --- !!!!';                            // IMPLEMENTIERUNG!!!!
+    // const url = 'http://www.angular.at/api/flight';
+    const url = 'http://localhost:8080/recipes/edit/:id';                            // IMPLEMENTIERUNG!!!!
     const headers = new HttpHeaders()
       .set('Accept', 'application/json');
     this.http
