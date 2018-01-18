@@ -1,7 +1,7 @@
-import {Component, OnInit, ViewEncapsulation} from "@angular/core";
-import {Recipe} from "../../entities/recipe";
-import {ActivatedRoute} from "@angular/router";
-import {RecipeService} from "../recipe-search/recipe.service";
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Recipe} from '../../entities/recipe';
+import {ActivatedRoute} from '@angular/router';
+import {RecipeService} from '../recipe-search/recipe.service';
 
 @Component({
   selector: 'recipe-show',

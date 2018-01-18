@@ -8,7 +8,7 @@
     <form>
       <div class="form-group">
         <label>Enter a name: </label>
-        <input [(ngModel)] = 'name' name ='name' class='form-control'>
+        <input [(ngModel)]="name" name="name" class="form-control">
       </div>
 
       <!--
@@ -26,7 +26,7 @@
 
         <button
           (click)="showAll()"
-          class="btn btn-default">Alle Rezepte anzeigen</button>
+          class="btn btn-default">Show all recipes</button>
       </div>
     </form>
   </div>

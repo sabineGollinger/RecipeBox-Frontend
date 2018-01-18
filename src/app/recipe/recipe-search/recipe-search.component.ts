@@ -54,7 +54,7 @@ export class RecipeSearchComponent { // implements OnInit {
           this.recipes = recipes['_embedded']['recipes'];
         },
         (err) => {
-          console.error('Fehler beim Laden - Rezeptbuch nicht gefunden', err);
+          console.error('Fehler beim Laden - Kochbuch nicht gefunden', err);
         }
       );
   }
