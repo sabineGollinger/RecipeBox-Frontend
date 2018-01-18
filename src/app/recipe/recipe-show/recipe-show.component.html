@@ -1,0 +1,55 @@
+<div class="card">
+  <div class="header">
+    <h1 *ngIf="recipe" class="title">{{recipe.name}}</h1>
+  </div>
+  <div class="content">
+    <form *ngIf="recipe">
+
+      <div class="form-group">
+        <h3>{{recipe.category}}</h3>
+      </div>
+
+      <div class="form-group" margin="50px">
+        <label>Recipe Nr. {{recipe.id}}</label>
+        <br>
+        <label>added on {{recipe.addedDate}}</label>
+        <br>
+        <label>by {{recipe.user}}</label>
+      </div>
+
+      <div class="form-group">
+        <h4>Ingredients</h4>
+        <br>
+        {{recipe.ingredient}}
+      </div>
+
+      <br>
+
+      <div class="form-group">
+        <h4>Preparation</h4>
+        <br>
+        {{recipe.preparation}}
+      </div>
+
+      <br>
+
+      <div class="form-group">
+        <h4>Hints</h4>
+        <br>
+        {{recipe.hint}}
+      </div>
+
+      <br>
+
+      <a class="btn btn-default"
+         [routerLink]="['../recipe-search']">
+        Back
+      </a>
+
+    </form>
+  </div>
+</div>
+
+
+
+

@@ -41,7 +41,7 @@ export class RecipeService {
   }
   save(r: Recipe): Observable<Recipe> {
     // const url = 'http://www.angular.at/api/flight';
-    const url = 'http://localhost:8080/recipes/edit/:id';                            // IMPLEMENTIERUNG!!!!
+    const url = 'http://localhost:8080/recipes/edit';                            // IMPLEMENTIERUNG!!!!
     const headers = new HttpHeaders()
       .set('Accept', 'application/json');
     this.http

@@ -9,6 +9,7 @@ import {RecipeCardComponent} from "./recipe-card/recipe-card.component";
 import {RecipeService} from "./recipe-search/recipe.service";
 import {RecipeEditComponent} from "./recipe-edit/recipe-edit.component";
 import {RecipeComponent} from "./recipe.component";
+import {RecipeShowComponent} from "./recipe-show/recipe-show.component";
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {RecipeComponent} from "./recipe.component";
     RecipeSearchComponent,
     RecipeCardComponent,
     RecipeEditComponent,
-    RecipeComponent
+    RecipeComponent,
+    RecipeShowComponent
   ],
   providers: [
     RecipeService

@@ -1,59 +1,53 @@
 <div class="card">
   <div class="header">
-    <h1 class="title">Edit Recipe</h1>
+    <h1 *ngIf="recipe" class="title">Edit {{recipe.name}}</h1>
   </div>
   <div class="content">
-    <p>Id: {{id}}</p>
-    <p>ShowDetails: {{showDetails}}</p>
+
+    <form *ngIf="recipe">
+
+      <div class="form-group">
+        <label>Id:</label>
+        <input [(ngModel)]="recipe.id" name="id" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label>Name:</label>
+        <input [(ngModel)]="recipe.name" name="name" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label>Category:</label>
+        <input [(ngModel)]="recipe.category" name="category" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label>Ingredients:</label>
+        <textarea id="edit" [(ngModel)]="recipe.ingredient" name="ingredient" class="form-control">
+    </textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Preparation:</label>
+        <textarea id="edit" [(ngModel)]="recipe.preparation" name="preparation" class="form-control">
+    </textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Hints:</label>
+        <input id="edit" [(ngModel)]="recipe.hint" name="hint" class="form-control">
+      </div>
+
+      <!-- Fügen Sie hier Felder für die weiteren Eigenschaften -->
+      <!-- des Fluges hinzu -->
+
+      <button class="btn btn-default" (click)="save()">Save</button>
+
+    </form>
+
   </div>
 </div>
 
-hello
 
-<form *ngIf="recipe">
-
-  is it me youre looking for
-
-  <div class="form-group">
-    <label>Id:</label>
-    <input [(ngModel)]="recipe.id" name="id" class="form-control">
-  </div>
-
-  <div class="form-group">
-  <label>Name:</label>
-  <input [(ngModel)]="recipe.name" name="name" class="form-control">
-</div>
-
-  <div class="form-group">
-    <label>Category:</label>
-    <input [(ngModel)]="recipe.category" name="category" class="form-control">
-  </div>
-
-  <div class="form-group">
-    <label>Ingredients:</label>
-    <textarea id="edit" [(ngModel)]="recipe.ingredient" name="ingredient" class="form-control">
-    </textarea>
-  </div>
-
-  <div class="form-group">
-    <label>Preparation:</label>
-    <textarea id="edit" [(ngModel)]="recipe.preparation" name="preparation" class="form-control">
-    </textarea>
-  </div>
-
-  <div class="form-group">
-    <label>Hints:</label>
-    <input id="edit" [(ngModel)]="recipe.hint" name="hint" class="form-control">
-  </div>
-
-  <!-- Fügen Sie hier Felder für die weiteren Eigenschaften -->
-  <!-- des Fluges hinzu -->
-
-  <button class="btn btn-default" (click)="save()">Speichern</button>
-
-
-
-
-</form>
 
 

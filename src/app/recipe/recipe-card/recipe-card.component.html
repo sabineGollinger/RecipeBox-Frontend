@@ -10,6 +10,7 @@
     <!--<p>added by {{item.user}}</p>
     <!--<p>added on {{item.addedDate | date:'dd.MM.yyyy'}}</p>-->
     <p>
+      <!--
       <button
         class="btn btn-default"
         *ngIf="!selected"
@@ -18,6 +19,12 @@
         class="btn btn-default"
         *ngIf="selected"
         (click)="deselect()">Remove</button>
+        -->
+
+      <a class="btn btn-default"
+         [routerLink]="['../recipe-show', item.id, { showDetails: true }]">
+        Show
+      </a>
 
       <a class="btn btn-default"
          [routerLink]="['../recipe-edit', item.id, { showDetails: true }]">
