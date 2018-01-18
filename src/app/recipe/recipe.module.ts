@@ -10,7 +10,7 @@ import {RecipeService} from "./recipe-search/recipe.service";
 import {RecipeEditComponent} from "./recipe-edit/recipe-edit.component";
 import {RecipeComponent} from "./recipe.component";
 import {RecipeShowComponent} from "./recipe-show/recipe-show.component";
-
+import {RecipeValidationErrorsComponent} from "./recipe-validation-errors/recipe-validation-errors.component";
 
 @NgModule({
   imports: [
@@ -25,7 +25,8 @@ import {RecipeShowComponent} from "./recipe-show/recipe-show.component";
     RecipeCardComponent,
     RecipeEditComponent,
     RecipeComponent,
-    RecipeShowComponent
+    RecipeShowComponent,
+    RecipeValidationErrorsComponent
   ],
   providers: [
     RecipeService

@@ -1,0 +1,15 @@
+<div *ngIf="errors && errors['required']">
+  Field required!
+</div>
+
+<div *ngIf="errors && errors['minlength']">
+  Field too short! Add more details!
+</div>
+
+<div *ngIf="errors && errors['maxlength']">
+  Field too long! Please simplify!
+</div>
+
+<div *ngIf="errors && errors['category']">
+  Category wrong! Please use 'Sweets', 'Main', 'Sauce', 'Drinks', or 'Others'
+</div>
