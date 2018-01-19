@@ -12,46 +12,41 @@
 
       <div class="form-group">
         <label>Name:</label>
+        <recipe-validation-errors [errors]="form?.controls['name']?.errors"></recipe-validation-errors>
         <input [(ngModel)]="recipe.name" name="name" class="form-control standard"
                required minlength="3">
-
-        <recipe-validation-errors [errors]="form?.controls['name']?.errors"></recipe-validation-errors>
       </div>
 
       <div class="form-group">
         <label>Category:</label>
+        <recipe-validation-errors [errors]="form?.controls['category']?.errors"></recipe-validation-errors>
         <input [(ngModel)]="recipe.category" name="category" class="form-control standard"
                 required minlength="3"
                 [category]="['Sweets', 'Main', 'Sauce', 'Drinks', 'Others']">
-
-        <recipe-validation-errors [errors]="form?.controls['category']?.errors"></recipe-validation-errors>
       </div>
 
       <div class="form-group">
         <label>Ingredients:</label>
+        <recipe-validation-errors [errors]="form?.controls['ingredient']?.errors"></recipe-validation-errors>
         <textarea id="edit" [(ngModel)]="recipe.ingredient" name="ingredient" class="form-control standard"
                   required minlength="3" maxlength="256">
         </textarea>
-
-        <recipe-validation-errors [errors]="form?.controls['ingredient']?.errors"></recipe-validation-errors>
       </div>
 
       <div class="form-group">
         <label>Preparation:</label>
+        <recipe-validation-errors [errors]="form?.controls['ingredient']?.errors"></recipe-validation-errors>
         <textarea id="edit" [(ngModel)]="recipe.preparation" name="preparation" class="form-control standard"
                   required minlength="3" maxlength="256">
         </textarea>
-
-        <recipe-validation-errors [errors]="form?.controls['ingredient']?.errors"></recipe-validation-errors>
       </div>
 
 
       <div class="form-group">
         <label>Hints:</label>
+        <recipe-validation-errors [errors]="form?.controls['hints']?.errors"></recipe-validation-errors>
         <input id="edit" [(ngModel)]="recipe.hint" name="hint" class="form-control standard"
                required minlength="3">
-
-        <recipe-validation-errors [errors]="form?.controls['name']?.errors"></recipe-validation-errors>
       </div>
 
       <button class="btn btn-default" (click)="save()">Save</button>

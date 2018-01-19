@@ -5,7 +5,7 @@
   </div>
 
   <div class="content">
-    <form>
+    <form  #form="ngForm">
       <h5>Search for a Name or Category</h5>
 
       <div class="form-group">
@@ -15,19 +15,16 @@
 
       <div class="form-group">
         <label>Enter a Category: </label>
-        <input id="input" [(ngModel)]="category" name="category" class='form-control'>
+        <recipe-validation-errors [errors]="form?.controls['category']?.errors"></recipe-validation-errors>
+        <input id="input" [(ngModel)]="category" name="category" class='form-control'
+               [category]="['Sweets', 'Main', 'Sauce', 'Drinks', 'Others']">
       </div>
 
       <div class="form-group">
         <button
-          [disabled]="!category"
-          (click)="search()"
-          class="btn btn-default">Search</button>  <!--" || !category"-->
-
-        <button
           [disabled]="!name && !category"
           (click)="searchByNameOrCategory()"
-          class="btn btn-default">Search long</button>
+          class="btn btn-default">Search</button>
 
         <button
           (click)="showAll()"
