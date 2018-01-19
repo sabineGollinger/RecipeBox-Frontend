@@ -1,0 +1,57 @@
+<div class="card">
+  <div class="header">
+    <h1 *ngIf="user" class="title">Benutzer {{user.username}} bearbeiten</h1>
+  </div>
+  <div class="content">
+    <form  (ngSubmit)="save()" *ngIf="user" #form="ngForm">
+      <div class="form-group">
+        <label>Benutzer Nr. {{user.id}}</label>
+        <input [(ngModel)]="user.id" name="id" value="{{user.id}}" type="hidden">
+      </div>
+
+      <div class="form-group">
+        <label>Benutzername:</label>
+        <input [(ngModel)]="user.username" name="username" class="form-control" placeholder="Benutzername"
+               required minlength="3">
+
+        <user-validation-errors [errors]="form?.controls['username']?.errors"></user-validation-errors>
+      </div>
+
+      <div class="form-group">
+        <label>E-Mail:</label>
+        <input [(ngModel)]="user.email" name="email" class="form-control" placeholder="E-Mail"
+               required minlength="3">
+
+        <user-validation-errors [errors]="form?.controls['email']?.errors"></user-validation-errors>
+      </div>
+
+      <div class="form-group">
+        <label>Vorname:</label>
+        <input [(ngModel)]="user.firstname" name="firstname" class="form-control" placeholder="Vorname"
+               required minlength="3">
+
+        <user-validation-errors [errors]="form?.controls['firstname']?.errors"></user-validation-errors>
+      </div>
+
+      <div class="form-group">
+        <label>Nachname:</label>
+        <input [(ngModel)]="user.lastname" name="lastname" class="form-control" placeholder="Nachname"
+               required minlength="3">
+
+        <user-validation-errors [errors]="form?.controls['lastname']?.errors"></user-validation-errors>
+      </div>
+
+      <div class="form-group">
+        <label>Passwort:</label>
+        <input [(ngModel)]="user.password" name="password" class="form-control" placeholder="Passwort"
+               required minlength="3">
+
+        <user-validation-errors [errors]="form?.controls['password']?.errors"></user-validation-errors>
+      </div>
+
+    </form>
+  </div>
+</div>
+<div class="form-group">
+  <button class="btn" (click)="save()">Speichern</button>
+</div>

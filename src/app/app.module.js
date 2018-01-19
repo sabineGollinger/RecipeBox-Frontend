@@ -12,13 +12,13 @@ var platform_browser_1 = require('@angular/platform-browser');
 var core_1 = require('@angular/core');
 var forms_1 = require('@angular/forms');
 var app_component_1 = require('./app.component');
-var recipe_search_component_1 = require('./recipe-search/recipe-search.component');
-var user_service_1 = require("./service/user.service");
-var user_module_1 = require("./user/user.module");
-var shared_module_1 = require("./shared/shared.module");
-var home_component_1 = require("./home/home.component");
-var app_routes_1 = require("./app.routes");
-var router_1 = require("@angular/router");
+var user_service_1 = require('./service/user.service');
+var user_module_1 = require('./user/user.module');
+var shared_module_1 = require('./shared/shared.module');
+var home_component_1 = require('./home/home.component');
+var app_routes_1 = require('./app.routes');
+var router_1 = require('@angular/router');
+var recipe_module_1 = require('./recipe/recipe.module');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -30,13 +30,13 @@ var AppModule = (function () {
                 http_1.HttpClientModule,
                 shared_module_1.SharedModule,
                 user_module_1.UserModule,
+                recipe_module_1.RecipeModule,
                 router_1.RouterModule.forRoot(app_routes_1.APP_ROUTES)
             ],
             declarations: [
                 app_component_1.AppComponent,
                 sidebar_component_1.SidebarComponent,
                 navbar_component_1.NavbarComponent,
-                recipe_search_component_1.RecipeSearchComponent,
                 home_component_1.HomeComponent
             ],
             providers: [

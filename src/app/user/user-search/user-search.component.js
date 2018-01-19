@@ -10,6 +10,7 @@ var UserSearchComponent = (function () {
     function UserSearchComponent(userService) {
         this.userService = userService;
         this.users = [];
+        this.showAll();
     }
     UserSearchComponent.prototype.ngOnInit = function () { };
     UserSearchComponent.prototype.search = function () {

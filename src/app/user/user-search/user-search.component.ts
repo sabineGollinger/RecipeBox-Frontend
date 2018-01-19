@@ -18,7 +18,7 @@ export class UserSearchComponent  { // implements OnInit
   users: Array<User> = [];
 
   constructor (private userService: UserService) {
-
+    this.showAll();
   }
 
   ngOnInit() {}

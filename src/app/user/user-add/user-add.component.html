@@ -1,0 +1,78 @@
+<div class="card">
+  <div class="header">
+    <h1 class="title">Neuen Benutzer erstellen</h1>
+  </div>
+  <div class="content">
+    <form (ngSubmit)="create()" [formGroup]="userForm">
+      <div class="form-group">
+        <label>Benutzername:</label>
+        <input formControlName="username" class="form-control" placeholder="Benutzername"
+               required minlength="3">
+
+        <div class="error" *ngIf="userForm.get('username').hasError('required')">
+          Field required!
+        </div>
+        <div class="error" *ngIf="userForm.get('username').hasError('minlength')">
+          Field too short! Add more details!
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <label>E-Mail:</label>
+        <input formControlName="email" class="form-control" placeholder="E-Mail"
+               required minlength="3">
+
+        <div class="error" *ngIf="userForm.get('email').hasError('required')">
+          Field required!
+        </div>
+        <div class="error" *ngIf="userForm.get('email').hasError('minlength')">
+          Field too short! Add more details!
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Vorname:</label>
+        <input formControlName="firstname" class="form-control" placeholder="Vorname"
+               required minlength="3">
+
+        <div class="error" *ngIf="userForm.get('firstname').hasError('required')">
+          Field required!
+        </div>
+        <div class="error" *ngIf="userForm.get('firstname').hasError('minlength')">
+          Field too short! Add more details!
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Nachname:</label>
+        <input formControlName="lastname" class="form-control" placeholder="Nachname"
+               required minlength="3">
+
+        <div class="error" *ngIf="userForm.get('lastname').hasError('required')">
+          Field required!
+        </div>
+        <div class="error" *ngIf="userForm.get('lastname').hasError('minlength')">
+          Field too short! Add more details!
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Passwort:</label>
+        <input formControlName="password" class="form-control" placeholder="Passwort"
+               required minlength="3">
+
+        <div class="error" *ngIf="userForm.get('password').hasError('required')">
+          Field required!
+        </div>
+        <div class="error" *ngIf="userForm.get('password').hasError('minlength')">
+          Field too short! Add more details!
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="form-group">
+  <button class="btn" [disabled]="userForm.invalid" (click)="create()">Erstellen</button>
+</div>

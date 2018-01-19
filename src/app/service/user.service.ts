@@ -35,4 +35,41 @@ export class UserService {
       .http
       .get<User[]>(url, {headers});
   }
+
+  findById(id: string)  {
+
+    let url = 'http://localhost:8080/users/search/findById/';
+    let headers = new HttpHeaders().set('Accept', 'application/json');
+    let params = new HttpParams()
+      .set('id', id);
+
+    return this
+      .http
+      .get<User>(url, {headers,params});
+  }
+
+  createUser(user: User): Observable<User> {
+
+    console.log(user);
+
+    let url = 'http://localhost:8080/users';
+    let headers = new HttpHeaders().set('Accept', 'application/json');
+
+    return this
+      .http
+      .post(url, user, {headers});
+  }
+
+  updateUser(user: User): Observable<User> {
+
+    console.log(user);
+
+    let url = 'http://localhost:8080/users/' + user.id;
+    console.log(url);
+    let headers = new HttpHeaders().set('Accept', 'application/json');
+
+    return this
+      .http
+      .put(url, user, {headers});
+  }
 }
