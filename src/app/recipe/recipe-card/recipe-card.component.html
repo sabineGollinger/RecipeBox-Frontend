@@ -1,13 +1,13 @@
 <div
   class="card"
-  [ngStyle]="{'background-color': (selected) ? 'rgb(204, 197, 185)' : 'white' }">
+  [ngStyle]="{'background-color': 'white' }">
   <div class="header">
     <h2 class="title">{{item.name}}</h2>
     <h4>{{item.category}}</h4>
   </div>
   <div class="content" *ngIf="item">
-    <p>added on {{item.addedDate}}</p>
-    <!--<p>by {{item.user}}</p>-->
+    <!--<p>added on {{item.addedDate}}</p>-->
+    <p>by {{item.username.username}}</p>
     <p>
       <!--
       <button
@@ -19,19 +19,20 @@
         *ngIf="selected"
         (click)="deselect()">Remove</button>
         -->
-
-      <a class="btn btn-default"
-         [routerLink]="['../recipe-show', item.id, { showDetails: true }]">
-        Show
-      </a>
-
-      <a class="btn btn-default"
-         [routerLink]="['../recipe-edit', item.id, { showDetails: true }]">
-        Edit
-      </a>
-
-
     </p>
+      <div align="right">
+        <a class="btn btn-default"
+           [routerLink]="['../recipe-show', item.id, { showDetails: true }]">
+         Show
+        </a>
+
+       <a class="btn btn-default"
+           [routerLink]="['../recipe-edit', item.id, { showDetails: true }]">
+         Edit
+       </a>
+      </div>
+
+
   </div>
 </div>
 

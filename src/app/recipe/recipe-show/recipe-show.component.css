@@ -1,0 +1,15 @@
+.multi_lines_text {
+  white-space: pre-line;
+}
+h4 {
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-left: 10px;
+}
+.btn {
+  margin-top: 15px;
+}
+

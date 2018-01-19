@@ -39,6 +39,15 @@ export class RecipeService {
       .set('Accept', 'application/json');
     return this.http.get<Recipe>(url, { params, headers});
   }
+  findByNameOrCategory(name: string, category: string): Observable<Recipe> {
+    const url = 'http://localhost:8080/recipes/search/findByNameOrCategory/';
+    const params = new HttpParams()
+      .set('name', name)
+      .set('category', category);
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json');
+    return this.http.get<Recipe>(url, { params, headers});
+  }
   save(r: Recipe): Observable<Recipe> {
     // const url = 'http://www.angular.at/api/flight';
     const url = 'http://localhost:8080/recipes/';  // id fehlt                          // IMPLEMENTIERUNG!!!!

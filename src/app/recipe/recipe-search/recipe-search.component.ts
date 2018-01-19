@@ -34,7 +34,21 @@ export class RecipeSearchComponent { // implements OnInit {
       .findByName(this.name)
       .subscribe(
         (recipes) => {
-          this.recipes = recipes;
+          this.recipes = recipes['_embedded']['recipes'];
+          console.log(this.recipes);
+        },
+        (errResp) => {
+          console.error('Error loading recipes', errResp);
+        }
+      );
+  }
+  searchByNameOrCategory(): void {
+    this.recipeService
+      .findByNameOrCategory(this.name, this.category)
+      .subscribe(
+        (recipes) => {
+          this.recipes = recipes['_embedded']['recipes'];
+          console.log(this.recipes);
         },
         (errResp) => {
           console.error('Error loading recipes', errResp);

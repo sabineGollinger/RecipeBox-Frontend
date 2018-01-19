@@ -27,7 +27,7 @@ export class RecipeShowComponent { // implements OnInit {
         this.showDetails = params['showDetails'];
 
         this.recipeService.findById(this.id).subscribe(
-          recipe => {this.recipe = recipe; this.errors = ''; },
+          recipe => {this.recipe = recipe; this.errors = '';},
           err => {this.errors = 'Fehler beim Laden - jemand hat das Kochbuch verlegt'; }
         );
       }

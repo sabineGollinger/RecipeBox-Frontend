@@ -12,7 +12,7 @@
 
       <div class="form-group">
         <label>Name:</label>
-        <input [(ngModel)]="recipe.name" name="name" class="form-control"
+        <input [(ngModel)]="recipe.name" name="name" class="form-control standard"
                required minlength="3">
 
         <recipe-validation-errors [errors]="form?.controls['name']?.errors"></recipe-validation-errors>
@@ -20,7 +20,7 @@
 
       <div class="form-group">
         <label>Category:</label>
-        <input [(ngModel)]="recipe.category" name="category" class="form-control"
+        <input [(ngModel)]="recipe.category" name="category" class="form-control standard"
                 required minlength="3"
                 [category]="['Sweets', 'Main', 'Sauce', 'Drinks', 'Others']">
 
@@ -29,7 +29,7 @@
 
       <div class="form-group">
         <label>Ingredients:</label>
-        <textarea id="edit" [(ngModel)]="recipe.ingredient" name="ingredient" class="form-control"
+        <textarea id="edit" [(ngModel)]="recipe.ingredient" name="ingredient" class="form-control standard"
                   required minlength="3" maxlength="256">
         </textarea>
 
@@ -38,7 +38,7 @@
 
       <div class="form-group">
         <label>Preparation:</label>
-        <textarea id="edit" [(ngModel)]="recipe.preparation" name="preparation" class="form-control"
+        <textarea id="edit" [(ngModel)]="recipe.preparation" name="preparation" class="form-control standard"
                   required minlength="3" maxlength="256">
         </textarea>
 
@@ -48,7 +48,8 @@
 
       <div class="form-group">
         <label>Hints:</label>
-        <input id="edit" [(ngModel)]="recipe.hint" name="hint" class="form-control"required minlength="3">
+        <input id="edit" [(ngModel)]="recipe.hint" name="hint" class="form-control standard"
+               required minlength="3">
 
         <recipe-validation-errors [errors]="form?.controls['name']?.errors"></recipe-validation-errors>
       </div>

@@ -6,23 +6,28 @@
 
   <div class="content">
     <form>
+      <h5>Search for a Name or Category</h5>
+
       <div class="form-group">
-        <label>Enter a name: </label>
-        <input [(ngModel)]="name" name="name" class="form-control">
+        <label>Enter a Name: </label>
+        <input id="input" [(ngModel)]="name" name="name" class="form-control">
       </div>
 
-      <!--
       <div class="form-group">
-        <label>Category: </label>
-        <input [(ngModel)]="category" name="category" class='form-control'>
+        <label>Enter a Category: </label>
+        <input id="input" [(ngModel)]="category" name="category" class='form-control'>
       </div>
-      -->
 
       <div class="form-group">
         <button
-          [disabled]="!name"
+          [disabled]="!category"
           (click)="search()"
           class="btn btn-default">Search</button>  <!--" || !category"-->
+
+        <button
+          [disabled]="!name && !category"
+          (click)="searchByNameOrCategory()"
+          class="btn btn-default">Search long</button>
 
         <button
           (click)="showAll()"
@@ -32,87 +37,13 @@
   </div>
 </div>
 
-<!--
-<div class="card">
-  <table class="table table-contensed" *ngIf="recipes.length > 0">
-    <thead>
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Category</th>
-      <th>Ingredients</th>
-      <th>Preparation</th>
-      <th>added on</th>
-      <th>added by</th>
-      <th>Action</th>
-    </tr>
-    </thead>
-    <tr *ngFor="let r of recipe"
-        [class.active]="r === selectedRecipe">
-      <td>{{r.id}}</td>
-      <td>{{r.name }}</td>
-      <td>{{r.category}}</td>
-      <td>{{r.ingredient }}</td>
-      <td>{{r.preparation }}</td>
-      <td>{{r.addedDate | date:'dd.MM.yyyy'}}</td>
-      <td>{{r.username }}</td>
-
-      <td>
-        <a
-          (click)="select(r)">Select</a>
-      </td>
-    </tr>
-  </table>
-</div>
--->
-
-<!--
-<div class="card">
-  <div class="content">
-    <pre>{{selectedRecipe | json }}</pre>
-  </div>
-</div>
--->
-
-<!--
-<div *ngIf="selectedRecipe">
-  <div>
-    {{ message }}
-  </div>
-  <div class="form-group">
-    <label>Id</label> <input [(ngModel)]="selectedRecipe.id" class="form-control">
-  </div>
-  <div class="form-group">
-    <label>Name</label> <input [(ngModel)]="selectedRecipe.name" class="form-control">
-  </div>
-</div>
--->
-
 
 <div class="row">
-  <div *ngFor="let r of recipes" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+  <div *ngFor="let r of recipes" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <recipe-card
       [item]="r"
       [(selected)]="basket[r.id]">
     </recipe-card>
-  </div>
-</div>
-
-<!--
-<div class="card">
-  <div class="content">
-    <a routerLink="../recipe-search">Recipe Search</a> |
-    <a routerLink="../user-search">User Search</a>
-  </div>
-</div>
-
-
-<router-outlet></router-outlet>
--->
-
-<div class="card">
-  <div class="content">
-    <pre>{{ statusBasket | json }}</pre>
   </div>
 </div>
 
