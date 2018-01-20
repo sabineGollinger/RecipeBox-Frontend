@@ -52,47 +52,7 @@ export class PdfmakeService {
 
     this.docDefinition.content.push({ columns: columns });
   }
-/*
-  addTable(table: Table) {
-    const body = [];
-    let row = [];
 
-    if (table) {
-
-
-      for (const header of table.headers.cells) {
-        row.push(header.content);
-      }
-
-      body.push(row);
-
-      for (const rowObj of table.rows) {
-        row = [];
-        for (const cell of rowObj.cells) {
-          row.push(cell.content);
-        }
-        body.push(row);
-      }
-
-      let tableDictionary;
-
-      if (table.widths) {
-        tableDictionary = {
-          table:
-            {
-              widths: table.widths,
-              body: body
-            }
-        };
-      } else {
-        tableDictionary = { table: { body: body } };
-      }
-
-      this.docDefinition.content.push(tableDictionary);
-    }
-  }
-
-*/
   addImage(url: string, width?: number, height?: number) {
     let data;
     const image = new Image();

@@ -2,12 +2,6 @@ input#input {
   /*background: cornsilk; */
   background: lemonchiffon;
 }
-td {
-  border-right: 2px solid darkblue;
-  border-left: 2px solid darkblue;
-  padding: 15px;
-  text-align: center;
-}
 
 input.ng-invalid.ng-dirty {
   border-left: solid red 5px;

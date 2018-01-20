@@ -14,7 +14,8 @@
         <br>
         <!--<label>added on {{recipe.addedDate}}</label>
         <br>-->
-        <label>by {{recipe.username.username}}</label>
+        <label *ngIf="recipe.username.username">by {{recipe.username.username}}</label>
+        <label *ngIf="!recipe.username.username">by unknown</label>
       </div>
 
       <div class="form-group multi_lines_text" ng-bind-html=" recipe.ingredient | nl2br ">
@@ -32,10 +33,12 @@
         {{recipe.hint}}
       </div>
 
+      <!--
       <a class="btn btn-default"
          [routerLink]="['../recipe']">
         Back
       </a>
+      -->
 
       <a class="btn btn-default"
          (click)="pdfmake.open()">

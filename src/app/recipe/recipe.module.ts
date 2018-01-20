@@ -11,6 +11,7 @@ import {RecipeEditComponent} from "./recipe-edit/recipe-edit.component";
 import {RecipeComponent} from "./recipe.component";
 import {RecipeShowComponent} from "./recipe-show/recipe-show.component";
 import {RecipeValidationErrorsComponent} from "./recipe-validation-errors/recipe-validation-errors.component";
+import {RecipeAddComponent} from "./recipe-add/recipe-add.component";
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import {RecipeValidationErrorsComponent} from "./recipe-validation-errors/recipe
     RecipeEditComponent,
     RecipeComponent,
     RecipeShowComponent,
-    RecipeValidationErrorsComponent
+    RecipeValidationErrorsComponent,
+    RecipeAddComponent
   ],
   providers: [
     RecipeService

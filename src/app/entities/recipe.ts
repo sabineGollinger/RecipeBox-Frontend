@@ -7,7 +7,6 @@ export interface Recipe {
   ingredient: string;
   preparation: string;
   hint: string;
-  user: User;
-
+  username: User;
 
 }

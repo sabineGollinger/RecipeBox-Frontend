@@ -1,0 +1,30 @@
+textarea#edit
+{
+  width: 100%;
+  height: 150px;
+  align: top;
+  background: lemonchiffon;
+}
+input {
+  background: lemonchiffon;
+}
+.standard {
+  /*background: cornsilk; */
+  background: lemonchiffon;
+}
+
+input.ng-invalid.ng-dirty {
+  border-left: solid red 5px;
+}
+input.ng-valid.ng-dirty {
+  border-left: solid greenyellow 5px;
+}
+
+textarea.ng-invalid.ng-dirty {
+  border-left: solid red 5px;
+}
+textarea.ng-valid.ng-dirty {
+  border-left: solid greenyellow 5px;
+}
+
+

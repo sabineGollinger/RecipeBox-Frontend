@@ -1,7 +1,8 @@
-import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
-import {Injectable} from "@angular/core";
-import {Observable} from "rxjs/Observable";
-import {Recipe} from "../../entities/recipe";
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs/Observable';
+import {Recipe} from '../../entities/recipe';
+
 
 @Injectable()
 export class RecipeService {
@@ -75,6 +76,18 @@ export class RecipeService {
     return this
       .http
       .get<Recipe[]>(url, {headers});
+  }
+
+  createRecipe(recipe: Recipe) {
+
+    console.log(recipe);
+
+    let url = 'http://localhost:8080/recipes';
+    let headers = new HttpHeaders().set('Accept', 'application/json');
+
+    return this
+      .http
+      .post(url, recipe, {headers});
   }
 
 /*
