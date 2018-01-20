@@ -23,11 +23,11 @@
          [routerLink]="['/user-search']">
           Zurück
       </a>
-      <a class="btn btn-default"
-         [routerLink]="['/user-delete', u.id]">
+      <a class="btn btn-default" *ngIf="loginUserRole == 'A'"
+         [routerLink]="['/user-delete', user.id]">
         Löschen
       </a>
-      <a class="btn btn-default"
+      <a class="btn btn-default" *ngIf="(loginUser.id == user.id) || (loginUser.id != user.id && loginUserRole == 'A')"
          [routerLink]="['/user-edit', user.id]">
           Bearbeiten
       </a>

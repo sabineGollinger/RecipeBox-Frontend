@@ -1,4 +1,15 @@
-<div align="center">
-  <h1>Herzlich Willkommen in der RecipeBox!</h1>
-  <img src="../../assets/img/RecipeBox Logo.gif" alt="Logo RecipeBox">
+<h1 *ngIf="loginUser">Willkommen, {{loginUser.username}}</h1>
+<h1 *ngIf="!loginUser">Herzlich Willkommen in der RecipeBox! Bitte melden Sie sich an!</h1>
+<img src="../../assets/img/RecipeBox Logo.gif" alt="Logo RecipeBox">
+
+<div class="card">
+  <div class="content" *ngIf="loginUser">
+    <button class="btn btn-default" (click)="logout()">Logout</button>
+  </div>
+  <div class="content" *ngIf="!loginUser">
+    <a class="btn btn-default"
+       [routerLink]="['/login']">
+      Login
+    </a>
+  </div>
 </div>

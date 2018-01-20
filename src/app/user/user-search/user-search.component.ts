@@ -4,6 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {HttpHeaders} from "@angular/common/http";
 import {HttpParams} from "@angular/common/http";
 import {UserService} from "../../service/user.service";
+import {AuthService} from "../../shared/auth/auth.service";
 
 @Component ({
   selector: 'user-search',
@@ -16,12 +17,20 @@ export class UserSearchComponent  { // implements OnInit
   firstname: string;
   lastname: string;
   users: Array<User> = [];
+  loginUser: User;
+  loginUserRole: String;
 
-  constructor (private userService: UserService) {
+  constructor (
+    private authService: AuthService,
+    private userService: UserService
+  ) {
     this.showAll();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.loginUser = this.authService.loginUser;
+    this.loginUserRole = this.authService.loginUserRole;
+  }
 
   search(): void {
     this.userService

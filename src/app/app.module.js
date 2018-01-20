@@ -19,6 +19,8 @@ var home_component_1 = require('./home/home.component');
 var app_routes_1 = require('./app.routes');
 var router_1 = require('@angular/router');
 var recipe_module_1 = require('./recipe/recipe.module');
+var pdfmake_module_1 = require('./recipe/pdfmake/pdfmake.module');
+var login_component_1 = require("./login/login.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -27,17 +29,20 @@ var AppModule = (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
+                forms_1.ReactiveFormsModule,
                 http_1.HttpClientModule,
                 shared_module_1.SharedModule,
                 user_module_1.UserModule,
                 recipe_module_1.RecipeModule,
-                router_1.RouterModule.forRoot(app_routes_1.APP_ROUTES)
+                router_1.RouterModule.forRoot(app_routes_1.APP_ROUTES),
+                pdfmake_module_1.PdfmakeModule
             ],
             declarations: [
                 app_component_1.AppComponent,
                 sidebar_component_1.SidebarComponent,
                 navbar_component_1.NavbarComponent,
-                home_component_1.HomeComponent
+                home_component_1.HomeComponent,
+                login_component_1.LoginComponent
             ],
             providers: [
                 { provide: user_service_1.UserService, useClass: user_service_1.UserService }

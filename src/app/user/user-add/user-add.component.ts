@@ -28,7 +28,8 @@ export class UserAddComponent {
       username: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       email: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       firstname:  ['', Validators.compose([Validators.required, Validators.minLength(3)])],
-      lastname:  ['', Validators.compose([Validators.required, Validators.minLength(3)])]
+      lastname:  ['', Validators.compose([Validators.required, Validators.minLength(3)])],
+      password:  ['', Validators.compose([Validators.required, Validators.minLength(3)])]
     });
   }
 

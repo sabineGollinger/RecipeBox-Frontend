@@ -84,4 +84,17 @@ export class UserService {
       .http
       .delete(url, {headers});
   }
+
+  findByUsernameAndPassword (username: string, password: string) {
+    let url = 'http://localhost:8080/users/search/findByUsernameAndPassword/';
+    let headers = new HttpHeaders().set('Accept', 'application/json');
+    let params = new HttpParams()
+      .set('username', username)
+      .set('password', password);
+
+    return this
+      .http
+      .get<User>(url, {headers,params});
+
+  }
 }

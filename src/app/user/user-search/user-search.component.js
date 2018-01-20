@@ -7,12 +7,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require("@angular/core");
 var UserSearchComponent = (function () {
-    function UserSearchComponent(userService) {
+    function UserSearchComponent(authService, userService) {
+        this.authService = authService;
         this.userService = userService;
         this.users = [];
         this.showAll();
     }
-    UserSearchComponent.prototype.ngOnInit = function () { };
+    UserSearchComponent.prototype.ngOnInit = function () {
+        this.loginUser = this.authService.loginUser;
+        this.loginUserRole = this.authService.loginUserRole;
+    };
     UserSearchComponent.prototype.search = function () {
         var _this = this;
         this.userService
