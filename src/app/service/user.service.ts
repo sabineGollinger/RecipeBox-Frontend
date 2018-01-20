@@ -48,7 +48,7 @@ export class UserService {
       .get<User>(url, {headers,params});
   }
 
-  createUser(user: User): Observable<User> {
+  createUser(user: User) {
 
     console.log(user);
 
@@ -60,7 +60,7 @@ export class UserService {
       .post(url, user, {headers});
   }
 
-  updateUser(user: User): Observable<User> {
+  updateUser(user: User) {
 
     console.log(user);
 
@@ -71,5 +71,17 @@ export class UserService {
     return this
       .http
       .put(url, user, {headers});
+  }
+
+  deleteUser(id: number) {
+
+    console.log(id);
+
+    let url = 'http://localhost:8080/users/' + id;
+    let headers = new HttpHeaders().set('Accept', 'application/json');
+
+    return this
+      .http
+      .delete(url, {headers});
   }
 }

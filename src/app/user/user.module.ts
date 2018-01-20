@@ -8,6 +8,8 @@ import {USER_ROUTES} from "./user.routes";
 import {UserEditComponent} from "./user-edit/user-edit.component";
 import {UserValidationErrorsComponent} from "./user-validation-errors/user-validation-errors.component";
 import {UserAddComponent} from "./user-add/user-add.component";
+import {UserShowComponent} from "./user-show/user-show.component";
+import {UserDeleteComponent} from "./user-delete/user-delete.component";
 
 @NgModule({
   imports: [
@@ -22,15 +24,19 @@ import {UserAddComponent} from "./user-add/user-add.component";
   declarations: [
     UserSearchComponent,
     UserEditComponent,
+    UserShowComponent,
     UserValidationErrorsComponent,
-    UserAddComponent
+    UserAddComponent,
+    UserDeleteComponent
   ],
   providers:[
   ],
   exports: [
     UserSearchComponent,
     UserEditComponent,
-    UserAddComponent
+    UserAddComponent,
+    UserShowComponent,
+    UserDeleteComponent
   ]
 })
 export class UserModule { }

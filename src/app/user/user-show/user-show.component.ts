@@ -1,24 +1,21 @@
-import {Component, ViewEncapsulation} from "@angular/core";
+import {Component} from "@angular/core";
 import {ActivatedRoute} from "@angular/router";
 import {UserService} from "../../service/user.service";
 import {User} from "../../entities/user";
-import {Router} from "@angular/router";
 
 @Component({
-  selector: 'user-edit',
-  templateUrl: './user-edit.component.html',
-  styleUrls: ['./user-edit.component.css'],
-  encapsulation: ViewEncapsulation.None
+  selector: 'user-show',
+  templateUrl: './user-show.component.html',
+  styleUrls: ['./user-show.component.css']
 })
-export class UserEditComponent {
+export class UserShowComponent {
   id: string;
   user: User;
   errors: string;
 
   constructor(
     private route: ActivatedRoute,
-    private userService: UserService,
-    private router: Router) {
+    private userService: UserService) {
 
   }
 
@@ -37,20 +34,6 @@ export class UserEditComponent {
           }
         );
       }
-    );
-  }
-
-  save(): void {
-    this.userService
-      .updateUser(this.user).subscribe(
-        (user) => {
-          console.log("Benutzer bearbeitet");
-          this.router.navigate(['/user-search']);
-        },
-        (err) => {
-          console.error('Loading Error', err);
-        }
-
     );
   }
 }

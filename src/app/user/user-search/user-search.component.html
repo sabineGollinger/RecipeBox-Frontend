@@ -43,8 +43,6 @@
       <th>Id</th>
       <th>E-Mail</th>
       <th>Benutzername</th>
-      <th>Vorname</th>
-      <th>Nachname</th>
       <th>Rolle</th>
       <th></th>
     </tr>
@@ -54,13 +52,19 @@
       <td>{{u.id}}</td>
       <td>{{u.email }}</td>
       <td>{{u.username }}</td>
-      <td>{{u.firstname }}</td>
-      <td>{{u.lastname }}</td>
       <td>{{u.email | role}}</td>
       <td>
         <a class="btn btn-default"
-           [routerLink]="['/user-edit', u.id, { showDetails: true }]">
+           [routerLink]="['/user-edit', u.id]">
           Bearbeiten
+        </a>
+        <a class="btn btn-default"
+           [routerLink]="['/user-delete', u.id]">
+           Löschen
+        </a>
+        <a class="btn btn-default"
+           [routerLink]="['/user-show', u.id]">
+          Details
         </a>
       </td>
     </tr>

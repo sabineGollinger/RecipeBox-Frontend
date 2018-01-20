@@ -1,16 +1,15 @@
-import {Component, ViewEncapsulation} from "@angular/core";
+import {Component} from "@angular/core";
 import {ActivatedRoute} from "@angular/router";
 import {UserService} from "../../service/user.service";
 import {User} from "../../entities/user";
 import {Router} from "@angular/router";
 
 @Component({
-  selector: 'user-edit',
-  templateUrl: './user-edit.component.html',
-  styleUrls: ['./user-edit.component.css'],
-  encapsulation: ViewEncapsulation.None
+  selector: 'user-delete',
+  templateUrl: './user-delete.component.html',
+  styleUrls: ['./user-delete.component.css']
 })
-export class UserEditComponent {
+export class UserDeleteComponent {
   id: string;
   user: User;
   errors: string;
@@ -40,17 +39,16 @@ export class UserEditComponent {
     );
   }
 
-  save(): void {
+  delete():void {
     this.userService
-      .updateUser(this.user).subscribe(
-        (user) => {
-          console.log("Benutzer bearbeitet");
-          this.router.navigate(['/user-search']);
-        },
-        (err) => {
-          console.error('Loading Error', err);
-        }
-
+      .deleteUser(this.user.id).subscribe(
+      (user: User) => {
+        console.log("Benutzer erstellt");
+        this.router.navigate(['/user-search']);
+      },
+      (err) => {
+        console.error('Loading Error', err);
+      }
     );
   }
 }

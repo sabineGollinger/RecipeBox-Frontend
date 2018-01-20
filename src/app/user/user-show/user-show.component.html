@@ -1,0 +1,36 @@
+<div class="card">
+  <div class="header">
+    <h1 *ngIf="user" class="title">Benutzer {{user.username}}</h1>
+  </div>
+  <div class="content">
+    <form  (ngSubmit)="save()" *ngIf="user" #form="ngForm">
+      <div class="form-group">
+        <label>Benutzer Nr.: {{user.id}}</label>
+      </div>
+      <div class="form-group">
+        <label>Benutzername: {{user.username}}</label>
+      </div>
+      <div class="form-group">
+        <label>E-Mail: {{user.email}}</label>
+      </div>
+      <div class="form-group">
+        <label>Vorname: {{user.firstname}}</label>
+      </div>
+      <div class="form-group">
+        <label>Nachname: {{user.lastname}}</label>
+      </div>
+      <a class="btn btn-default"
+         [routerLink]="['/user-search']">
+          Zurück
+      </a>
+      <a class="btn btn-default"
+         [routerLink]="['/user-delete', u.id]">
+        Löschen
+      </a>
+      <a class="btn btn-default"
+         [routerLink]="['/user-edit', user.id]">
+          Bearbeiten
+      </a>
+    </form>
+  </div>
+</div>
