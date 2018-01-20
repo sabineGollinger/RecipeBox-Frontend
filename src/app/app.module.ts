@@ -17,6 +17,8 @@ import {HomeComponent} from './home/home.component';
 import {APP_ROUTES} from './app.routes';
 import {RouterModule} from '@angular/router';
 import {RecipeModule} from './recipe/recipe.module';
+import { PdfmakeModule } from './recipe/pdfmake/pdfmake.module';
+
 
 @NgModule({
   imports: [
@@ -26,7 +28,8 @@ import {RecipeModule} from './recipe/recipe.module';
     SharedModule,
     UserModule,
     RecipeModule,
-    RouterModule.forRoot(APP_ROUTES)
+    RouterModule.forRoot(APP_ROUTES),
+    PdfmakeModule
   ],
   declarations: [
     AppComponent,
@@ -39,5 +42,4 @@ import {RecipeModule} from './recipe/recipe.module';
   ],
   bootstrap: [AppComponent]
 })
-
 export class AppModule { }

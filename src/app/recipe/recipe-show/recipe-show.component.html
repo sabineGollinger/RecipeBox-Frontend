@@ -37,6 +37,21 @@
         Back
       </a>
 
+      <a class="btn btn-default"
+         (click)="pdfmake.open()">
+        Open PDF
+      </a>
+
+      <a class="btn btn-default"
+         (click)="pdfmake.print()">
+        Print PDF
+      </a>
+
+      <a class="btn btn-default"
+         (click)="pdfmake.download(recipe.name+'-RecipeBox')">
+        Download PDF
+      </a>
+
     </form>
   </div>
 </div>
