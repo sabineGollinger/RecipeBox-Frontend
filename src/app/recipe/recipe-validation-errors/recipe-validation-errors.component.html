@@ -1,17 +1,17 @@
 <div *ngIf="errors && errors['required']">
-  Field required!
+  Pflichtfeld!
 </div>
 
 <div *ngIf="errors && errors['minlength']">
-  Field too short! Add more details!
+  Inhalt zu kurz!
 </div>
 
 <div *ngIf="errors && errors['maxlength']">
-  Field too long! Please simplify!
+  Inhalt zu lang!
 </div>
 
 <div *ngIf="errors && errors['category']">
-  Category does not exist! Please use one of the following:
+  Kategorie existiert nicht! Bitte eine der folgenden verwenden:
   <br>
-  'Sweets', 'Main', 'Sauce', 'Drinks', or 'Others'
+  'Süßes', 'Hauptgerichte', 'Saucen', 'Getränke', oder 'Andere'
 </div>

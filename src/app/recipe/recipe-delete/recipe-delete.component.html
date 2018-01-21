@@ -1,0 +1,22 @@
+<div class="card">
+  <div class="header">
+    <h1 *ngIf="user" class="title">{{recipe.name}} löschen?</h1>
+  </div>
+  <div class="content">
+    <form  (ngSubmit)="delete()" *ngIf="user" #form="ngForm">
+      <input [(ngModel)]="user.id" name="id" value="{{user.id}}" type="hidden">
+      <div class="form-group">
+        <label>Wollen Sie das Rezept {{recipe.name}} wirklich löschen?</label>
+      </div>
+      <div class="form-group">
+        <a class="btn btn-default"
+           [routerLink]="['../recipe/recipe-search']">
+          Nein
+        </a>
+        <button class="btn"
+                [routerLink]="['../recipe/recipe-search']"
+                (click)="delete()">Ja</button>
+      </div>
+    </form>
+  </div>
+</div>

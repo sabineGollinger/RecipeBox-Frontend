@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {SharedModule} from '../shared/shared.module';
 import {RouterModule} from '@angular/router';
@@ -18,6 +18,7 @@ import {RecipeAddComponent} from "./recipe-add/recipe-add.component";
     CommonModule,
     FormsModule,
     SharedModule,
+    ReactiveFormsModule,
 
     RouterModule.forChild(RECIPE_ROUTES)
   ],

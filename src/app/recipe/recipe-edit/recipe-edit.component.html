@@ -1,13 +1,14 @@
-<div class="card">
+<div class="card" *ngIf="loginUser == null">
+  <p class="content">Rezept bearbeiten nur als eingeloggter User möglich!</p>
+</div>
+<div class="card" *ngIf="(loginUser.username == recipe.username.username)">
   <div class="header">
-    <h1 *ngIf="recipe" class="title">Edit {{recipe.name}}</h1>
+    <h1 *ngIf="recipe" class="title">{{recipe.name}} bearbeiten</h1>
   </div>
   <div class="content">
-
-    <form *ngIf="recipe" #form="ngForm">
-
+    <form (ngSubmit)="save()" *ngIf="recipe" #form="ngForm">
       <div class="form-group">
-        <label>Recipe Nr. {{recipe.id}}</label>
+        <label>Rezept Nr. {{recipe.id}}</label>
       </div>
 
       <div class="form-group">
@@ -18,41 +19,47 @@
       </div>
 
       <div class="form-group">
-        <label>Category:</label>
+        <label>Kategorie:</label>
         <recipe-validation-errors [errors]="form?.controls['category']?.errors"></recipe-validation-errors>
         <input [(ngModel)]="recipe.category" name="category" class="form-control standard"
                 required minlength="3"
-                [category]="['Sweets', 'Main', 'Sauce', 'Drinks', 'Others']">
+                [category]="['Süßes', 'Hauptgerichte', 'Saucen', 'Getränke', 'Andere']">
       </div>
 
       <div class="form-group">
-        <label>Ingredients:</label>
+        <label>Zutaten:</label>
         <recipe-validation-errors [errors]="form?.controls['ingredient']?.errors"></recipe-validation-errors>
-        <textarea id="edit" [(ngModel)]="recipe.ingredient" name="ingredient" class="form-control standard"
-                  required minlength="3" maxlength="256">
+        <textarea [(ngModel)]="recipe.ingredient" name="ingredient" class="form-control standard edit"
+                  required minlength="3">
         </textarea>
       </div>
 
       <div class="form-group">
-        <label>Preparation:</label>
+        <label>Zubereitung:</label>
         <recipe-validation-errors [errors]="form?.controls['ingredient']?.errors"></recipe-validation-errors>
-        <textarea id="edit" [(ngModel)]="recipe.preparation" name="preparation" class="form-control standard"
-                  required minlength="3" maxlength="256">
+        <textarea id="edit" [(ngModel)]="recipe.preparation" name="preparation" class="form-control standard edit"
+                  required minlength="3">
         </textarea>
       </div>
 
-
       <div class="form-group">
-        <label>Hints:</label>
+        <label>Hinweise:</label>
         <recipe-validation-errors [errors]="form?.controls['hints']?.errors"></recipe-validation-errors>
-        <input id="edit" [(ngModel)]="recipe.hint" name="hint" class="form-control standard"
+        <textarea [(ngModel)]="recipe.hint" name="hint" class="form-control standard edit"
                required minlength="3">
+        </textarea>
       </div>
 
-      <button class="btn btn-default" (click)="save()">Save</button>
+      <div class="form-group">
+        <a class="btn btn-default"
+           [routerLink]="['/recipe-search']">
+          Zurück
+        </a>
+
+        <button class="btn btn-default" (click)="save()">Speichern</button>
+      </div>
 
     </form>
-
   </div>
 </div>
 

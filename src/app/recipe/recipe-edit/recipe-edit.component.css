@@ -1,7 +1,14 @@
-textarea#edit
+textarea.edit
 {
   width: 100%;
   height: 150px;
+  align: top;
+  background: lemonchiffon;
+}
+textarea#edit
+{
+  width: 100%;
+  height: 250px;
   align: top;
   background: lemonchiffon;
 }
@@ -9,7 +16,6 @@ input {
   background: lemonchiffon;
 }
 .standard {
-  /*background: cornsilk; */
   background: lemonchiffon;
 }
 

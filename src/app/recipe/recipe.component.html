@@ -1,10 +1,14 @@
 
 <div class="card">
   <div class="content ">
-    <a routerLink="./home">Home</a> |
-    <a routerLink="./recipe-search">Find Recipe</a> |
-    <a routerLink="./recipe-add">Add Recipe</a> |
-    <a routerLink="../user-search">User Search</a>
+    <i class="ti-home"></i>
+    <a routerLink="./home"> Home  |</a>
+    <i class="ti-files"></i>
+    <a routerLink="./recipe-search"> Rezept finden  |</a>
+    <i *ngIf="loginUser" class="ti-plus"></i>
+    <a *ngIf="loginUser" routerLink="./recipe-add"> Rezept hinzufügen  |</a>
+    <i class="ti-search"></i>
+    <a routerLink="../user-search"> Benutzer suchen </a>
   </div>
 </div>
 

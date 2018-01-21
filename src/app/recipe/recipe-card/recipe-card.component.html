@@ -6,18 +6,31 @@
     <h4>{{item.category}}</h4>
   </div>
   <div class="content" *ngIf="item">
-    <p>by {{item.username.username}}</p>
+    <p>von {{item.username.username}}</p>
 
       <div align="right">
-        <a class="btn btn-default"
+        <div>
+        <a class="btn btn-default ti-eye"
            [routerLink]="['../recipe-show', item.id, { showDetails: true }]">
-         Show
+          Anzeigen
         </a>
+        </div>
 
-       <a class="btn btn-default"
-           [routerLink]="['../recipe-edit', item.id, { showDetails: true }]">
-         Edit
-       </a>
+        <div *ngIf="loginUser">
+          <button class="btn btn-default ti-pencil"
+               [disabled]="!(loginUser.username == item.username.username)"
+               [routerLink]="['../recipe-edit', item.id, { showDetails: true }]">
+            Bearbeiten
+          </button>
+        </div>
+
+        <div *ngIf="loginUserRole == 'A'">
+          <a class="btn btn-default"
+             [routerLink]="['/user-delete', u.id]">
+            Löschen
+          </a>
+        </div>
+
       </div>
 
   </div>

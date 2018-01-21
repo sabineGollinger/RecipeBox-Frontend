@@ -2,11 +2,11 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {Recipe} from '../../entities/recipe';
+import {User} from "../../entities/user";
 
 
 @Injectable()
 export class RecipeService {
-
 
   recipes: Array<Recipe> = [];
   selectedRecipe: Recipe;
@@ -14,7 +14,6 @@ export class RecipeService {
   constructor(private http: HttpClient) {
   }
   findByName(name: string): Observable<Recipe[]> {
-    // let url = 'http://www.angular.at/api/flight';
     let url = 'http://localhost:8080/recipes/search/findByName/';
     let headers = new HttpHeaders() .set('Accept', 'application/json');
     let params = new HttpParams() .set('name', name);
@@ -22,7 +21,6 @@ export class RecipeService {
   }
 
   findById(id: string): Observable<Recipe> {
-    // const url = 'http://www.angular.at/api/flight';
     const url = 'http://localhost:8080/recipes/search/findById/';
     const params = new HttpParams()
       .set('id', id);
@@ -32,7 +30,6 @@ export class RecipeService {
   }
 
   findByCategory(category: string): Observable<Recipe> {
-    // const url = 'http://www.angular.at/api/flight';
     const url = 'http://localhost:8080/recipes/search/findByCategory/';
     const params = new HttpParams()
       .set('category', category);
@@ -40,6 +37,16 @@ export class RecipeService {
       .set('Accept', 'application/json');
     return this.http.get<Recipe>(url, { params, headers});
   }
+  /*
+  findByUser(user: User): Observable<Recipe> {
+    const url = 'http://localhost:8080/recipes/search/findByUser/';
+    const params = new HttpParams()
+      .set('user', user);
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json');
+    return this.http.get<Recipe>(url, { params, headers});
+  }
+  */
   findByNameOrCategory(name: string, category: string): Observable<Recipe> {
     const url = 'http://localhost:8080/recipes/search/findByNameOrCategory/';
     const params = new HttpParams()
@@ -50,7 +57,6 @@ export class RecipeService {
     return this.http.get<Recipe>(url, { params, headers});
   }
   save(r: Recipe): Observable<Recipe> {
-    // const url = 'http://www.angular.at/api/flight';
     const url = 'http://localhost:8080/recipes/';  // id fehlt                          // IMPLEMENTIERUNG!!!!
     const headers = new HttpHeaders()
       .set('Accept', 'application/json');
@@ -63,13 +69,12 @@ export class RecipeService {
         },
         errResponse => {
           console.error('Fehler beim Speichern, errResponse');
-          this.message = 'Fehler beim Speichern! Da hat wohl jemand den Kochlöffel fallen gelassen!';
+          this.message = 'Fehler beim Speichern!';
         });
     return this.http.post<Recipe>(url, r, { headers});
   }
 
   findAllRecipes(): Observable<Recipe[]> {
-
     let url = 'http://localhost:8080/recipes';
     let headers = new HttpHeaders().set('Accept', 'application/json');
 
@@ -79,8 +84,7 @@ export class RecipeService {
   }
 
   createRecipe(recipe: Recipe) {
-
-    console.log(recipe);
+    console.log('Create' + recipe);
 
     let url = 'http://localhost:8080/recipes';
     let headers = new HttpHeaders().set('Accept', 'application/json');
@@ -90,24 +94,26 @@ export class RecipeService {
       .post(url, recipe, {headers});
   }
 
-/*
-  save(recipe: Recipe): Observable<Recipe> {
-    let url = 'http://www.angular.at/api/flight';
-    let headers = new HttpHeaders()
-      .set('Accept', 'application/json');
+  updateRecipe(recipe: Recipe) {
+    console.log('Update' + recipe);
 
-    this.http
-      .post<Recipe>(url, this.selectedRecipe, {headers})
-      .subscribe(
-        recipe => {
-          this.selectedRecipe = recipe;
-          this.message = "Rezept erfolgreich gespeichert!";
-        },
-        errResponse => {
-          console.error('Fehler beim Speichern, errResponse');
-          this.message = "Fehler beim Speichern! Da hat wohl jemand den Kochlöffel fallen gelassen!";
-        });
-    return this.http.post<Recipe>(url, recipe, { headers});
+    let url = 'http://localhost:8080/recipes/' + recipe.id;
+    console.log(url);
+    let headers = new HttpHeaders().set('Accept', 'application/json');
+
+    return this
+      .http
+      .put(url, recipe, {headers});
   }
-  */
+
+  deleteRecipe(id: number) {
+    console.log('delete recipe' + id);
+
+    let url = 'http://localhost:8080/users/' + id;
+    let headers = new HttpHeaders().set('Accept', 'application/json');
+
+    return this
+      .http
+      .delete(url, {headers});
+  }
 }

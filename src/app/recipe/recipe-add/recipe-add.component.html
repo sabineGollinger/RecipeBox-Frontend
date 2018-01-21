@@ -2,14 +2,17 @@
   recipe add
 </div>
 
-<!--
 <div class="card">
   <div class="header">
-    <h1 class="title">Add a Recipe</h1>
+    <h1 class="title">Rezept hinzufügen</h1>
   </div>
 
   <div class="content">
-    <form (ngSubmit)="create()" [formGroup]="recipeForm">
+    <form (ngSubmit)="create()" [formGroup]="recipeAddForm">
+
+      <div class="form-group">
+        <label>User: {{loginUser.username}}</label>
+      </div>
 
       <div class="form-group">
         <label>Name:</label>
@@ -19,41 +22,38 @@
       </div>
 
       <div class="form-group">
-        <label>Category:</label>
+        <label>Kategorie:</label>
         <recipe-validation-errors [errors]="form?.controls['category']?.errors"></recipe-validation-errors>
         <input formControlName="category" class="form-control standard" placeholder="Category"
-               required [category]="['Sweets', 'Main', 'Sauce', 'Drinks', 'Others']">
+               required [category]="['Süßes', 'Hauptgerichte', 'Saucen', 'Getränke', 'Andere']">
       </div>
 
       <div class="form-group">
-        <label>Ingredients:</label>
+        <label>Zutaten:</label>
         <recipe-validation-errors [errors]="form?.controls['ingredient']?.errors"></recipe-validation-errors>
-        <textarea id="edit" formControlName="ingredient" class="form-control standard" placeholder="Ingredients"
+        <input id="edit" formControlName="ingredient" class="form-control standard" placeholder="Ingredients"
                   required minlength="3" maxlength="256">
-        </textarea>
+        <!--</input>-->
       </div>
 
       <div class="form-group">
-        <label>Preparation:</label>
+        <label>Zubereitung:</label>
         <recipe-validation-errors [errors]="form?.controls['ingredient']?.errors"></recipe-validation-errors>
-        <textarea id="edit" formControlName="preparation" class="form-control standard" placeholder="Preparation"
+        <input id="edit" formControlName="preparation" class="form-control standard" placeholder="Preparation"
                   required minlength="3" maxlength="256">
-        </textarea>
+        <!--</input>-->
       </div>
 
       <div class="form-group">
-        <label>Hints:</label>
+        <label>Hinweise:</label>
         <recipe-validation-errors [errors]="form?.controls['hints']?.errors"></recipe-validation-errors>
         <input id="edit" formControlName="hint" class="form-control standard" placeholder="Hints"
                required >
       </div>
 
-      <button class="btn btn-default" (click)="save()">Save</button>
+      <button class="btn btn-default" (click)="create()">Speichern</button>
 
     </form>
 
   </div>
 </div>
-
-
--->

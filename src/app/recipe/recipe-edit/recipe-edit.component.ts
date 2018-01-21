@@ -1,7 +1,9 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Recipe} from '../../entities/recipe';
 import {RecipeService} from '../recipe-search/recipe.service';
+import {User} from "../../entities/user";
+import {AuthService} from "../../shared/auth/auth.service";
 
 @Component({
   selector: 'recipe-edit',
@@ -12,14 +14,20 @@ import {RecipeService} from '../recipe-search/recipe.service';
 
 export class RecipeEditComponent implements OnInit {
 
+  loginUser: User;
+  loginUserRole: String;
   id: string;
   showDetails: string;
   recipe: Recipe;
   errors: string;
   constructor(
+    private authService: AuthService,
     private route: ActivatedRoute,
-    private recipeService: RecipeService) {}
+    private recipeService: RecipeService,
+    private router: Router) {}
   ngOnInit() {
+    this.loginUser = this.authService.loginUser;
+    this.loginUserRole = this.authService.loginUserRole;
     this.route.params.subscribe(
       params => {
         this.id = params['id'];
@@ -32,13 +40,17 @@ export class RecipeEditComponent implements OnInit {
       }
     );
   }
-  save() {
-   this.recipeService.save(this.recipe).subscribe(
-     recipe => {
-       this.recipe = recipe;
-       this.errors = 'Erfolgreich gespeichert - Gericht gelungen!';
-     },
-     err => { this.errors = 'Fehler beim Speichern - da hat wohl jemand das falsche Rezept'; }
-   ) ;
+  save(): void {
+    this.recipeService
+      .updateRecipe(this.recipe).subscribe(
+      (recipe) => {
+        console.log("Rezept erfolgreich bearbeitet");
+        this.router.navigate(['./recipe-search']);
+      },
+      (err) => {
+        console.error('Loading Error', err);
+      }
+
+    );
   }
 }

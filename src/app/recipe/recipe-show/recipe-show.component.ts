@@ -3,8 +3,9 @@ import {Recipe} from '../../entities/recipe';
 import {ActivatedRoute} from '@angular/router';
 import {RecipeService} from '../recipe-search/recipe.service';
 import {PdfmakeService} from '../pdfmake/pdfmake.service';
+import {User} from "../../entities/user";
+import {AuthService} from "../../shared/auth/auth.service";
 
-// import { PdfmakeService } from 'ng-pdf-make/pdfmake/pdfmake.service';
 
 @Component({
   selector: 'recipe-show',
@@ -20,11 +21,17 @@ export class RecipeShowComponent { // implements OnInit {
   recipe: Recipe;
   errors: string;
 
+  loginUser: User;
+  loginUserRole: String;
+
   constructor(
+    private authService: AuthService,
     private route: ActivatedRoute,
     private recipeService: RecipeService,
     private pdfmake: PdfmakeService) {  }
   ngOnInit() {
+    this.loginUser = this.authService.loginUser;
+    this.loginUserRole = this.authService.loginUserRole;
     this.route.params.subscribe(
       params => {
         this.id = params['id'];

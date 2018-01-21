@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {User} from '../../entities/user';
 import {RecipeService} from './recipe.service';
 import {Recipe} from '../../entities/recipe';
+import {AuthService} from "../../shared/auth/auth.service";
 
 
 
@@ -25,14 +26,25 @@ export class RecipeSearchComponent { // implements OnInit {
 
   basket: object = { };
 
+  loginUser: User;
+  loginUserRole: String;
 
-  constructor(private recipeService: RecipeService) {
+
+  constructor(
+    private authService: AuthService,
+    private recipeService: RecipeService) {
     this.showAll();
   }
 
-  search(): void {
+  ngOnInit() {
+    this.loginUser = this.authService.loginUser;
+    this.loginUserRole = this.authService.loginUserRole;
+    console.log(this.selectedRecipe);
+  }
+/*
+  searchByUser(): void {
     this.recipeService
-      .findByName(this.name)
+      .findByUser(this.user)
       .subscribe(
         (recipes) => {
           this.recipes = recipes['_embedded']['recipes'];
@@ -43,6 +55,7 @@ export class RecipeSearchComponent { // implements OnInit {
         }
       );
   }
+  */
   searchByNameOrCategory(): void {
     this.recipeService
       .findByNameOrCategory(this.name, this.category)
@@ -73,9 +86,4 @@ export class RecipeSearchComponent { // implements OnInit {
         }
       );
   }
-  /*
-  ngOnInit() {
-  }
-  */
-
 }

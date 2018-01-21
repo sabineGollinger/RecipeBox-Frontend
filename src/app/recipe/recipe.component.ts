@@ -1,4 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {AuthService} from "../shared/auth/auth.service";
+import {Router} from "@angular/router";
+import {User} from "../entities/user";
 
 @Component({
   selector: 'recipe',
@@ -8,8 +11,12 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class RecipeComponent implements OnInit {
 
-  constructor() { }
+  loginUser: User;
+  constructor(private authService: AuthService,
+              private router: Router) {
+    }
 
   ngOnInit() {
+    this.loginUser = this.authService.loginUser;
   }
 }

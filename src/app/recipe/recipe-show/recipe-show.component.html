@@ -10,46 +10,46 @@
       </div>
 
       <div class="form-group">
-        <label>Recipe Nr. {{recipe.id}}</label>
+        <label>Rezept Nr. {{recipe.id}}</label>
         <br>
-        <label>added by {{recipe.username.username}}</label>
+        <label>hinzugefügt von {{recipe.username.username}}</label>
       </div>
 
       <div class="form-group multi_lines_text" ng-bind-html=" recipe.ingredient | nl2br ">
-        <h4>Ingredients</h4>
+        <h4>Zutaten</h4>
         {{recipe.ingredient}}
       </div>
 
       <div class="form-group multi_lines_text" ng-bind-html=" recipe.preparation | nl2br ">
-        <h4>Preparation</h4>
+        <h4>Zubereitung</h4>
         {{recipe.preparation}}
       </div>
 
       <div class="form-group multi_lines_text" ng-bind-html=" recipe.hints | nl2br ">
-        <h4>Hints</h4>
+        <h4>Hinweise</h4>
         {{recipe.hint}}
       </div>
 
       <div>
-      <a class="btn btn-default"
+      <a class="btn btn-default ti-eye"
          (click)="pdfmake.open()">
-        Open PDF
+        PDF öffnen
       </a>
 
-      <a class="btn btn-default"
+      <a class="btn btn-default ti-printer"
          (click)="pdfmake.print()">
-        Print PDF
+        PDF drucken
       </a>
 
-      <a class="btn btn-default"
+      <a class="btn btn-default ti-download"
          (click)="pdfmake.download(recipe.name+'-RecipeBox')">
-        Download PDF
+        PDF herunterladen
       </a>
       </div>
 
       <a class="btn btn-default"
          [routerLink]="['../recipe']">
-        Back
+        Zurück
       </a>
 
     </form>

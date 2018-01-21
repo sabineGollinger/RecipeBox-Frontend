@@ -1,11 +1,25 @@
 <div class="card">
+  <div class="content ">
+    <i class="ti-home"></i>
+    <a routerLink="./home"> Home | </a>
+    <i class="ti-files"></i>
+    <a routerLink="./recipe-search"> Rezept finden | </a>
+    <i *ngIf="loginUser" class="ti-plus"></i>
+    <a *ngIf="loginUser" routerLink="../recipe/recipe-add"> Rezept hinzufügen | </a>
+    <i class="ti-search"></i>
+    <a routerLink="../user-search"> Benutzer suchen </a>
+  </div>
+</div>
+
+<div class="card">
   <div class="content">
     <h1 class="center" *ngIf="loginUser">Willkommen, {{loginUser.username}}</h1>
     <h1 class="center" *ngIf="!loginUser">Herzlich Willkommen in der RecipeBox!</h1>
   </div>
 
   <div class="content">
-    <h3 class="center">Bitte melden Sie sich an, um voll in den Genuss unserer Rezepte zu kommen!</h3>
+    <h3 class="center" *ngIf="!loginUser">Bitte melden Sie sich an, um voll in den Genuss unserer Rezepte zu kommen!</h3>
+    <h4 class="center" *ngIf="loginUser">Rezepte gefunden? Ausloggen nicht vergessen!</h4>
      <div class="content center" *ngIf="loginUser">
        <button class="btn btn-default" (click)="logout()">Logout</button>
      </div>

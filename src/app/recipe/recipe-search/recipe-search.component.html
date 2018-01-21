@@ -6,29 +6,35 @@
 
   <div class="content">
     <form  #form="ngForm">
-      <h5>Search for a Name or Category</h5>
+      <h5>Suche nach Name oder Kategorie</h5>
 
       <div class="form-group">
-        <label>Enter a Name: </label>
-        <input id="input" [(ngModel)]="name" name="name" class="form-control">
+        <label>Name eingeben: </label>
+        <input [(ngModel)]="name" name="name" class="form-control input">
       </div>
 
       <div class="form-group">
-        <label>Enter a Category: </label>
+        <label>Kategorie eingeben: </label>
         <recipe-validation-errors [errors]="form?.controls['category']?.errors"></recipe-validation-errors>
-        <input id="input" [(ngModel)]="category" name="category" class='form-control'
-               [category]="['Sweets', 'Main', 'Sauce', 'Drinks', 'Others']">
+        <input [(ngModel)]="category" name="category" class='form-control input'
+               [category]="['Süßes', 'Hauptgerichte', 'Saucen', 'Getränke', 'Andere']">
       </div>
 
       <div class="form-group">
         <button
           [disabled]="!name && !category"
           (click)="searchByNameOrCategory()"
-          class="btn btn-default">Search</button>
+          class="btn btn-default ti-search"> Suchen</button>
 
         <button
           (click)="showAll()"
-          class="btn btn-default">Show all recipes</button>
+          class="btn btn-default ti-files"> Alle Rezepte anzeigen</button>
+
+        <!--
+        <button
+          (click)="searchByUser()"
+          class="btn btn-default ti-files"> Meine Rezepte anzeigen</button>
+          -->
 
       </div>
     </form>
