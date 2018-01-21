@@ -12,12 +12,5 @@ export class RecipeCardComponent { // } implements OnInit {
   @Output() selectedChange = new EventEmitter<boolean>();
   ngOnInit() {
   }
-  select() {
-    this.selected = true;
-    this.selectedChange.next(this.selected);
-  }
-  deselect() {
-    this.selected = false;
-    this.selectedChange.next(this.selected);
-  }
+
 }

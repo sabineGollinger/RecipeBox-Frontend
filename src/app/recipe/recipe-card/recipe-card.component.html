@@ -6,20 +6,8 @@
     <h4>{{item.category}}</h4>
   </div>
   <div class="content" *ngIf="item">
-    <!--<p>added on {{item.addedDate}}</p>-->
     <p>by {{item.username.username}}</p>
-    <p>
-      <!--
-      <button
-        class="btn btn-default"
-        *ngIf="!selected"
-        (click)="select()">Select</button>
-      <button
-        class="btn btn-default"
-        *ngIf="selected"
-        (click)="deselect()">Remove</button>
-        -->
-    </p>
+
       <div align="right">
         <a class="btn btn-default"
            [routerLink]="['../recipe-show', item.id, { showDetails: true }]">
@@ -31,7 +19,6 @@
          Edit
        </a>
       </div>
-
 
   </div>
 </div>

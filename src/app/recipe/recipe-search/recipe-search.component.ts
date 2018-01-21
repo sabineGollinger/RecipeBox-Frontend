@@ -19,7 +19,6 @@ export class RecipeSearchComponent { // implements OnInit {
   preparation: string;
   hint: string;
   user: User;
-  // addedDate: Date;
 
   recipes: Array<Recipe> = [];
   selectedRecipe: Recipe;
@@ -27,7 +26,9 @@ export class RecipeSearchComponent { // implements OnInit {
   basket: object = { };
 
 
-  constructor(private recipeService: RecipeService) { }
+  constructor(private recipeService: RecipeService) {
+    this.showAll();
+  }
 
   search(): void {
     this.recipeService

@@ -2,7 +2,7 @@
   <div class="header">
     <h1 class="title">Login</h1>
   </div>
-  <form (ngSubmit)="login()" [formGroup]="loginForm">
+  <form class="content" (ngSubmit)="login()" [formGroup]="loginForm">
     <div class="form-group">
       <label>Benutzername:</label>
       <input formControlName="username" class="form-control" placeholder="Benutzername"
@@ -29,10 +29,13 @@
       </div>
     </div>
   </form>
+  <div class="content">
+    <div class="form-group">
+      <button class="btn" [disabled]="loginForm.invalid" (click)="login()">Login</button>
+    </div>
+    <div class="error" *ngIf="error">
+      Benutzername oder Passwort falsch!
+    </div>
+  </div>
 </div>
-<div class="form-group">
-  <button class="btn" [disabled]="loginForm.invalid" (click)="login()">Login</button>
-</div>
-<div class="error" *ngIf="error">
-  Benutzername oder Passwort falsch!
-</div>
+

@@ -12,10 +12,7 @@
       <div class="form-group">
         <label>Recipe Nr. {{recipe.id}}</label>
         <br>
-        <!--<label>added on {{recipe.addedDate}}</label>
-        <br>-->
-        <label *ngIf="recipe.username.username">by {{recipe.username.username}}</label>
-        <label *ngIf="!recipe.username.username">by unknown</label>
+        <label>added by {{recipe.username.username}}</label>
       </div>
 
       <div class="form-group multi_lines_text" ng-bind-html=" recipe.ingredient | nl2br ">
@@ -33,13 +30,7 @@
         {{recipe.hint}}
       </div>
 
-      <!--
-      <a class="btn btn-default"
-         [routerLink]="['../recipe']">
-        Back
-      </a>
-      -->
-
+      <div>
       <a class="btn btn-default"
          (click)="pdfmake.open()">
         Open PDF
@@ -53,6 +44,12 @@
       <a class="btn btn-default"
          (click)="pdfmake.download(recipe.name+'-RecipeBox')">
         Download PDF
+      </a>
+      </div>
+
+      <a class="btn btn-default"
+         [routerLink]="['../recipe']">
+        Back
       </a>
 
     </form>

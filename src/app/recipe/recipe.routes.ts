@@ -27,10 +27,4 @@ export const RECIPE_ROUTES: Routes = [
       },
     ]
   }
-  /*,
-  {
-    path: 'recipe-add',
-    component: RecipeAddComponent
-  }
-  */
 ];
