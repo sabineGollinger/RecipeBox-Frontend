@@ -7,7 +7,7 @@
   </div>
 
   <div class="content">
-    <form  [formGroup]="recipeAddForm"> <!--(ngSubmit)="create()"-->
+    <form  [formGroup]="recipeAddForm">
 
       <div class="form-group">
         <label>User: {{loginUser.username}}</label>
@@ -55,7 +55,12 @@
         </textarea>
       </div>
 
-      <button class="btn btn-default" [disabled]="recipeAddForm.invalid" (click)="create()">Rezept erstellen</button>
+      <button class="btn btn-default"
+              [disabled]="recipeAddForm.invalid"
+              (click)="create()"
+              [routerLink]="['../recipe/recipe-search']">
+        Rezept erstellen
+      </button>
 
     </form>
 

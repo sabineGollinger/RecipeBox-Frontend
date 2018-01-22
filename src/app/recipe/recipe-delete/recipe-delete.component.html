@@ -6,7 +6,7 @@
     <form  (ngSubmit)="delete()" *ngIf="recipe" #form="ngForm">
       <input [(ngModel)]="recipe.id" name="id" value="{{recipe.id}}" type="hidden">
       <div class="form-group">
-        <label>Wollen Sie das Rezept {{recipe.name}} wirklich löschen?</label>
+        <label>Wollen Sie das Rezept "{{recipe.name}}" wirklich löschen?</label>
       </div>
       <div class="form-group">
         <a class="btn btn-default"

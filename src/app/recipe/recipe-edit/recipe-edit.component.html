@@ -51,7 +51,11 @@
       </div>
 
       <div class="form-group">
-        <button class="btn btn-default" (click)="save()">Speichern</button>
+        <button class="btn btn-default"
+                (click)="save()"
+                [routerLink]="['../recipe/recipe-search']">
+          Speichern
+        </button>
       </div>
 
     </form>
