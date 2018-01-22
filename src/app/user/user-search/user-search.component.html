@@ -1,3 +1,16 @@
+<div class="card">
+  <div class="content ">
+    <i class="ti-home"></i>
+    <a routerLink="../home"> Home  |</a>
+    <i class="ti-files"></i>
+    <a routerLink="../recipe/recipe-search"> Rezepte  |</a>
+    <i *ngIf="loginUser" class="ti-plus"></i>
+    <a *ngIf="loginUser" routerLink="../recipe/recipe-add"> Rezept hinzufügen  |</a>
+    <i class="ti-user"></i>
+    <a routerLink="/user-search"> Benutzer </a>
+  </div>
+</div>
+
 <script src="../../recipe/recipe-edit/recipe-edit.component.ts"></script>
 <div class="card">
   <div class="header">
@@ -26,7 +39,7 @@
           class="btn btn-default">Alle User anzeigen</button>
       </div>
 
-      <div class="form-group" *ngIf="loginUser">
+      <div class="form-group">
         <a class="btn btn-default"
            [routerLink]="['/user-add']">
             Neuer Benutzer

@@ -59,7 +59,7 @@
 
       <div class="form-group">
         <label>Passwort:</label>
-        <input formControlName="password" class="form-control" placeholder="Passwort"
+        <input formControlName="password" class="form-control" placeholder="Passwort" type="password"
                required minlength="3">
 
         <div class="error" *ngIf="userForm.get('password').hasError('required')">

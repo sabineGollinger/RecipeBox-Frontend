@@ -1,8 +1,7 @@
-<div>
-  recipe add
+<div class="card" *ngIf="loginUser == null">
+  <p class="content">Rezept erstellen nur als eingeloggter User möglich!</p>
 </div>
-
-<div class="card">
+<div class="card" *ngIf="loginUser">
   <div class="header">
     <h1 class="title">Rezept hinzufügen</h1>
   </div>

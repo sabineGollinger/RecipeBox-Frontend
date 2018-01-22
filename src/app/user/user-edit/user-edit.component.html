@@ -43,7 +43,7 @@
 
       <div class="form-group">
         <label>Passwort:</label>
-        <input [(ngModel)]="user.password" name="password" class="form-control" placeholder="Passwort"
+        <input [(ngModel)]="user.password" name="password" class="form-control" placeholder="Passwort" type="password"
                required minlength="3">
 
         <user-validation-errors [errors]="form?.controls['password']?.errors"></user-validation-errors>

@@ -1,0 +1,10 @@
+input.input {
+  background: lemonchiffon;
+}
+
+input.ng-invalid.ng-dirty {
+  border-left: solid red 5px;
+}
+input.ng-valid.ng-dirty {
+  border-left: solid greenyellow 5px;
+}
