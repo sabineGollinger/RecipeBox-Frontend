@@ -22,7 +22,8 @@ export class RecipeShowComponent { // implements OnInit {
   errors: string;
 
   loginUser: User;
-  loginUserRole: String;
+  loginUserRole: string;
+  username: string;
 
   constructor(
     private authService: AuthService,
@@ -32,6 +33,7 @@ export class RecipeShowComponent { // implements OnInit {
   ngOnInit() {
     this.loginUser = this.authService.loginUser;
     this.loginUserRole = this.authService.loginUserRole;
+
     this.route.params.subscribe(
       params => {
         this.id = params['id'];
@@ -48,8 +50,6 @@ export class RecipeShowComponent { // implements OnInit {
               });
               this.pdfmake.addText(this.recipe.name, 'h1');
               this.pdfmake.addText(this.recipe.category, 'h2');
-              this.pdfmake.addText('\n');
-              this.pdfmake.addText('by ' + this.recipe.username.username, 'info')
               this.pdfmake.addText('\n\n');
               this.pdfmake.addText('Ingredients', 'h2');
               this.pdfmake.addText('\n');

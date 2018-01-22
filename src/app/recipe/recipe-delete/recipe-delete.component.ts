@@ -50,7 +50,7 @@ export class RecipeDeleteComponent {
   delete(): void {
     this.recipeService
       .deleteRecipe(this.recipe.id).subscribe(
-      (user: User) => {
+      (recipe: Recipe) => {
         console.log("Rezept gelöscht");
         this.router.navigate(['../recipe/recipe-search']);
       },

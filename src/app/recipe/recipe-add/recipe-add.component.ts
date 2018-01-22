@@ -33,28 +33,25 @@ export class RecipeAddComponent {
     this.loginUser = this.authService.loginUser;
     this.loginUserRole = this.authService.loginUserRole;
     console.log(this.loginUser);
+    console.log(this.loginUser.id);
     this.recipeAddForm = this.fb.group({
       name: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       category: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       ingredient:  ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       preparation:  ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       hint:  ['', Validators.compose([Validators.required, Validators.minLength(3)])],
-      user:  [this.loginUser, Validators.compose([Validators.required])]
+      user_id:  ['', Validators.compose([Validators.required])]
     });
-
-    console.log(this.recipeAddForm.value);
-    console.log(this.recipeAddForm.valid);
-    console.log(this.recipeAddForm.touched);
-    console.log(this.recipeAddForm.dirty);
-
     }
 
   create(): void {
+    this.recipeAddForm.value.user_id = this.loginUser.id;
+    console.log(this.recipeAddForm.value);
     this.recipeService
       .createRecipe(this.recipeAddForm.value).subscribe(
       (recipe: Recipe) => {
         console.log("Rezept erstellt");
-        this.router.navigate(['/recipe-search']);
+        this.router.navigate(['./recipe-search']);
       },
       (err) => {
         console.error('Loading Error', err);

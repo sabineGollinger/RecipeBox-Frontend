@@ -109,7 +109,7 @@ export class RecipeService {
   deleteRecipe(id: number) {
     console.log('delete recipe' + id);
 
-    let url = 'http://localhost:8080/users/' + id;
+    let url = 'http://localhost:8080/recipes/' + id;
     let headers = new HttpHeaders().set('Accept', 'application/json');
 
     return this

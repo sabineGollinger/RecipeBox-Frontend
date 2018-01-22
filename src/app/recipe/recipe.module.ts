@@ -12,6 +12,7 @@ import {RecipeComponent} from "./recipe.component";
 import {RecipeShowComponent} from "./recipe-show/recipe-show.component";
 import {RecipeValidationErrorsComponent} from "./recipe-validation-errors/recipe-validation-errors.component";
 import {RecipeAddComponent} from "./recipe-add/recipe-add.component";
+import {RecipeDeleteComponent} from "./recipe-delete/recipe-delete.component";
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import {RecipeAddComponent} from "./recipe-add/recipe-add.component";
     RecipeComponent,
     RecipeShowComponent,
     RecipeValidationErrorsComponent,
-    RecipeAddComponent
+    RecipeAddComponent,
+    RecipeDeleteComponent
   ],
   providers: [
     RecipeService

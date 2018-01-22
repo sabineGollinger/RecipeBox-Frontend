@@ -15,6 +15,10 @@
       </div>
 
       <div class="form-group">
+        <input formControlName="user_id" class="form-control standard" value="{{loginUser.id}}" placeholder="{{loginUser.id}}" type="hidden">
+      </div>
+
+      <div class="form-group">
         <label>Name:</label>
         <recipe-validation-errors [errors]="form?.controls['name']?.errors"></recipe-validation-errors>
         <input formControlName="name" class="form-control standard" placeholder="Name"
@@ -31,24 +35,25 @@
       <div class="form-group">
         <label>Zutaten:</label>
         <recipe-validation-errors [errors]="form?.controls['ingredient']?.errors"></recipe-validation-errors>
-        <input id="edit" formControlName="ingredient" class="form-control standard" placeholder="Ingredients"
+        <textarea id="edit" formControlName="ingredient" class="form-control standard" placeholder="Ingredients"
                   required minlength="3" maxlength="256">
-        <!--</input>-->
+        </textarea>
       </div>
 
       <div class="form-group">
         <label>Zubereitung:</label>
         <recipe-validation-errors [errors]="form?.controls['ingredient']?.errors"></recipe-validation-errors>
-        <input id="edit" formControlName="preparation" class="form-control standard" placeholder="Preparation"
+        <textarea id="edit" formControlName="preparation" class="form-control standard" placeholder="Preparation"
                   required minlength="3" maxlength="256">
-        <!--</input>-->
+        </textarea>
       </div>
 
       <div class="form-group">
         <label>Hinweise:</label>
         <recipe-validation-errors [errors]="form?.controls['hints']?.errors"></recipe-validation-errors>
-        <input id="edit" formControlName="hint" class="form-control standard" placeholder="Hints"
+        <textarea id="edit" formControlName="hint" class="form-control standard" placeholder="Hints"
                required >
+        </textarea>
       </div>
 
       <button class="btn btn-default" (click)="create()">Speichern</button>
