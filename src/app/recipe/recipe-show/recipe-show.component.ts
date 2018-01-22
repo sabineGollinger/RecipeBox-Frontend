@@ -41,6 +41,8 @@ export class RecipeShowComponent { // implements OnInit {
         this.recipeService.findById(this.id).subscribe(
           recipe => {
             this.recipe = recipe; this.errors = '';
+            console.log('This recipe: ');
+            console.log(this.recipe);
 
             // Configure PDF
               this.pdfmake.configureStyles({
@@ -51,24 +53,24 @@ export class RecipeShowComponent { // implements OnInit {
               this.pdfmake.addText(this.recipe.name, 'h1');
               this.pdfmake.addText(this.recipe.category, 'h2');
               this.pdfmake.addText('\n\n');
-              this.pdfmake.addText('Ingredients', 'h2');
+              this.pdfmake.addText('Zutaten', 'h2');
               this.pdfmake.addText('\n');
               this.pdfmake.addText(this.recipe.ingredient);
               this.pdfmake.addText('\n\n');
-              this.pdfmake.addText('Preparation', 'h2');
+              this.pdfmake.addText('Zubereitung', 'h2');
               this.pdfmake.addText('\n');
               this.pdfmake.addText(this.recipe.preparation);
               this.pdfmake.addText('\n\n');
-              this.pdfmake.addText('Hints', 'h2');
+              this.pdfmake.addText('Hinweise', 'h2');
               this.pdfmake.addText('\n');
               this.pdfmake.addText(this.recipe.hint);
               this.pdfmake.addText('\n\n\n');
-              this.pdfmake.addText('Recipe downloaded from', 'info');
+              this.pdfmake.addText('Rezept heruntergeladen von', 'info');
               this.pdfmake.addText('\n');
               this.pdfmake.addImage('./assets/img/RecipeBox Logo.gif', 150);
 
           },
-          err => {this.errors = 'Fehler beim Laden - jemand hat das Kochbuch verlegt'; }
+          err => {this.errors = 'Fehler beim Laden'; }
         );
       }
     );

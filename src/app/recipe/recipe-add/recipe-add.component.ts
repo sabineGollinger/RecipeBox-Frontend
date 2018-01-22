@@ -40,18 +40,16 @@ export class RecipeAddComponent {
       ingredient:  ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       preparation:  ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       hint:  ['', Validators.compose([Validators.required, Validators.minLength(3)])],
-      user_id:  ['', Validators.compose([Validators.required])]
+      username:  [this.loginUser, Validators.compose([Validators.required])]
     });
     }
 
   create(): void {
-    this.recipeAddForm.value.user_id = this.loginUser.id;
-    console.log(this.recipeAddForm.value);
     this.recipeService
       .createRecipe(this.recipeAddForm.value).subscribe(
       (recipe: Recipe) => {
         console.log("Rezept erstellt");
-        this.router.navigate(['./recipe-search']);
+        this.router.navigate(['../recipe/recipe-search']);
       },
       (err) => {
         console.error('Loading Error', err);

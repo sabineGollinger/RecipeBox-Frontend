@@ -1,4 +1,6 @@
 
+import {User} from "./user";
+
 export interface Recipe {
   id: number;
   name: string;
@@ -6,6 +8,6 @@ export interface Recipe {
   ingredient: string;
   preparation: string;
   hint: string;
-  user_id: number;
+  user: User;
 
 }

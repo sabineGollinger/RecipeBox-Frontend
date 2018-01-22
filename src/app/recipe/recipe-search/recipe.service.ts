@@ -85,6 +85,7 @@ export class RecipeService {
 
   createRecipe(recipe: Recipe) {
     console.log('Create' + recipe);
+    console.log(recipe);
 
     let url = 'http://localhost:8080/recipes';
     let headers = new HttpHeaders().set('Accept', 'application/json');
@@ -96,6 +97,7 @@ export class RecipeService {
 
   updateRecipe(recipe: Recipe) {
     console.log('Update' + recipe);
+    console.log(recipe);
 
     let url = 'http://localhost:8080/recipes/' + recipe.id;
     console.log(url);
@@ -108,6 +110,7 @@ export class RecipeService {
 
   deleteRecipe(id: number) {
     console.log('delete recipe' + id);
+    console.log(id);
 
     let url = 'http://localhost:8080/recipes/' + id;
     let headers = new HttpHeaders().set('Accept', 'application/json');
@@ -115,5 +118,11 @@ export class RecipeService {
     return this
       .http
       .delete(url, {headers});
+  }
+  goBack() {
+    let url = 'http://localhost:8080/recipes';
+    let headers = new HttpHeaders().set('Accept', 'application/json');
+
+    return this.http;
   }
 }

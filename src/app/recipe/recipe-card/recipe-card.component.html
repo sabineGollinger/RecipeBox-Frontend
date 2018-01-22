@@ -10,29 +10,26 @@
 
       <div align="right">
         <div>
-        <a class="btn btn-default ti-eye"
+        <a class="btn btn-default"
            [routerLink]="['../recipe-show', item.id, { showDetails: true }]">
           Anzeigen
         </a>
         </div>
 
-        <div *ngIf="loginUser">
-          <button class="btn btn-default ti-pencil"
-               [disabled]="!(loginUser.username == item.username.username)"
-               [routerLink]="['../recipe-edit', item.id, { showDetails: true }]">
-            Bearbeiten
-          </button>
-        </div>
+        <div >
+          <div *ngIf="loginUser">
+            <button class="btn btn-default" *ngIf="(loginUser.username == item.username.username) || (loginUserRole == 'A')"
+                    [routerLink]="['../recipe-edit', item.id, { showDetails: true }]">
+              Bearbeiten
+            </button>
 
-        <div *ngIf="loginUserRole == 'A'">
-          <a class="btn btn-default"
-             [routerLink]="['../recipe-delete', item.id]">
-            Löschen
-          </a>
+            <a class="btn btn-default" *ngIf="loginUserRole == 'A'"
+               [routerLink]="['../recipe-delete', item.id]">
+              Löschen
+            </a>
+          </div>
         </div>
-
       </div>
-
   </div>
 </div>
 
