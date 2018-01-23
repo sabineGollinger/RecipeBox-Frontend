@@ -7,7 +7,7 @@ Projekt von Sabine Gollinger & Michaela Stangl. (IMA15)
 
 "User" von Sabine Gollinger, "Recipe" von Michaela Stangl erstellt.
 
-Projekt ist Teil der Lehrveranstaltung SWENGS des Studiengangens Informationsmanagement (FH JOANNEUM Graz).
+Projekt ist Teil der Lehrveranstaltung SWENGS des Studiengangs Informationsmanagement (FH JOANNEUM Graz).
 
 
 ## Backend
@@ -18,7 +18,7 @@ https://github.com/sabineGollinger/RecipeBox-Backend
 
 Zuerst Backend starten
 
-IntelliJ --> npm start in Konsole eingeben
+IntelliJ --> "npm start" in Konsole eingeben
 
 Öffnen im Browser: localhost:4200
 
