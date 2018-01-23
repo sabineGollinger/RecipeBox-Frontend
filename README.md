@@ -17,6 +17,7 @@ https://github.com/sabineGollinger/RecipeBox-Backend
 ## Start
 
 Zuerst Backend starten
+
 IntelliJ --> npm start in Konsole eingeben
 
 Öffnen im Browser: localhost:4200
